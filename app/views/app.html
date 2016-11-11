@@ -1,7 +1,12 @@
 <md-toolbar color="primary">
   <span>Dictio</span>
 </md-toolbar>
-<hr/>
-<button md-button color="primary">FLAT</button>
-<button md-raised-button color="accent">ACCENT</button>
-<button md-raised-button color="primary">RAISED</button>
+
+<!-- Views container -->
+<router-outlet></router-outlet>
+
+<!-- Footer -->
+<br/>
+<md-card>
+  <a routerLink="">index</a>
+</md-card>

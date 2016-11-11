@@ -1,23 +1,29 @@
 <html>
   <head>
+    <!-- Metadata -->
     <title>Dictio</title>
+    <base href="/"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Styles -->
     <link href="node_modules/@angular/material/core/theming/prebuilt/indigo-pink.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- JS -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="systemjs.config.js"></script>
 
+    <!-- App -->
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
   </head>
   <body>
-    <my-app>Loading Dictio...</my-app>
+    <!-- Container -->
+    <dictio-app>Loading Dictio...</dictio-app>
   </body>
 </html>
