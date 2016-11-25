@@ -4,10 +4,13 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 import { RouterModule }   from '@angular/router';
 
-// Dictio
+// Components
 import { AppComponent }   from './components/app.component';
 import { MainComponent }  from './components/main.component';
 import { NounsComponent } from './components/nouns.component';
+
+// Services
+import { NounsService }   from './services/nouns.service';
 
 @NgModule({
   imports:      [ 
@@ -17,6 +20,9 @@ import { NounsComponent } from './components/nouns.component';
       { path: 'nouns',  component: NounsComponent },
       { path: '',       component: MainComponent }
     ])
+  ],
+  providers: [
+    NounsService
   ],
   declarations: [ 
     AppComponent, 
