@@ -1,6 +1,8 @@
 import { Gender } from "./globals.model";
+import { Type } from "class-transformer"
 
-export interface Noun {
+export class Noun {
+    @Type(() => Boolean)
     favorite: boolean;
     gender: Gender;
     english: string;
