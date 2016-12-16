@@ -6,7 +6,7 @@ console.log("Dictio running under '" + __dirname + "/../app/app'");
 
 let app = createExpressServer({
   controllers: [__dirname + "/controllers/**/*.js"],
-  routePrefix: "/api",
+  routePrefix: "/rest",
 });
 
 app.use(express.static('../app/app'));

@@ -13,7 +13,7 @@ export class NounsComponent implements OnInit {
   
   public ngOnInit(): void {
     this.nounsService
-      .getAllNounsAsync()
+      .getAllNouns()
       .subscribe((nouns: Noun[]) => {
           this.nouns = nouns;
       });

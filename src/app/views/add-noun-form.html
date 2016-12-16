@@ -1,0 +1,23 @@
+<md-card>
+    <h1>Add a noun</h1>
+      <div>
+        <label>English</label>
+        <input type="text" [(ngModel)]="noun.english">
+      </div>
+      <div>
+        <label>Spanish</label>
+        <input type="text" [(ngModel)]="noun.spanish">
+      </div>
+      <!--div>
+        <label>Gender</label>
+        <input type="radio" name="sex" value="male">Male<br>
+        
+        <input type="radio" value="Male">
+        <input type="radio" value="Female">
+      </div-->
+      <div>
+        <label>Favorite</label>
+        <input type="checkbox" checked="true">
+      </div>
+      <button md-raised-button color="primary" (click)="submit()">Submit</button>
+</md-card>

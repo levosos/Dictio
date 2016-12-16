@@ -6,7 +6,7 @@ import { Noun } from "../models/noun.model";
 export class NounsController {
     @Get("/")
     @UndefinedResultCode(500)
-    public async getAllNounsAsync(): Promise<Noun[]> {
+    public getAllNounsAsync(): Promise<Noun[]> {
         return Promise.resolve([
             {favorite: false, english: "Hello", spanish: "World", gender: Gender.Male},
             {favorite: true, english: "Was", spanish: "UPP", gender: Gender.Female}
@@ -15,7 +15,7 @@ export class NounsController {
 
     @Post("/")
     @UndefinedResultCode(202)
-    public addNoun(@Body({ required: true }) noun: Noun) {
+    public addNoun(@Body({ required: true }) noun: Noun): void {
         console.log("Adding a noun " + 
         noun.english + " " + 
         noun.spanish + " " + 

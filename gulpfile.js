@@ -47,12 +47,19 @@ gulp.task('static::app::views', function(){
 
 gulp.task('symlink::node_modules', function(){
   return gulp.src('node_modules')
-    .pipe(symlink('bin/app/app/node_modules')) 
+    .pipe(symlink('bin/app/app/node_modules', {force: true})) 
 });
 
-gulp.task('static', ['static::app::root', 'static::app::styles', 'static::app::views', 'symlink::node_modules']);
+gulp.task('symlink::api', function(){
+  return gulp.src('bin/app/api')
+    .pipe(symlink('bin/app/app/api', {force: true})) 
+});
 
-gulp.task('build', ['build::api', 'build::app', 'static']);
+gulp.task('static', ['static::app::root', 'static::app::styles', 'static::app::views', 'symlink::node_modules', 'symlink::api']);
+
+gulp.task('build', ['build::api', 'build::app'], function() {
+  gulp.start('static')
+});
 
 gulp.task('rebuild', ['clean'], function () {
   gulp.start('build');
