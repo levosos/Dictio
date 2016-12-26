@@ -8,21 +8,23 @@ export class NounsService {
     constructor(private http: Http) {
     }
 
-    public getAllNouns(): Observable<Noun[]> {
-        return this.http
-            .get("rest/nouns")
-            .map((nouns: Response) => {
-                return nouns.json();
-            });
+    public getAllNouns(): Promise<Noun[]> {
+        return new Promise(resolve => { 
+            this.http
+                .get("rest/nouns")
+                .subscribe(res => resolve(res.json()))
+        });
     }
     
-    public addNoun(noun: Noun): Observable<void> {
+    public addNoun(noun: Noun): Promise<any> {
         let bodyString = JSON.stringify(noun);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        
-        return this.http
-            .post("rest/nouns", bodyString, options)
-            .map(()=>{})
+
+        return new Promise(resolve => {
+            this.http
+                .post("rest/nouns", bodyString, options)
+                .subscribe(res => resolve())
+            });
     }
 }

@@ -11,11 +11,7 @@ export class NounsComponent implements OnInit {
   constructor(private nounsService: NounsService) {
   }
   
-  public ngOnInit(): void {
-    this.nounsService
-      .getAllNouns()
-      .subscribe((nouns: Noun[]) => {
-          this.nouns = nouns;
-      });
+  public async ngOnInit(): Promise<void> {
+    this.nouns = await this.nounsService.getAllNouns();
   }
 }

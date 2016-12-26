@@ -8,19 +8,21 @@ import { Noun } from "../../api/models/noun.model"
   templateUrl: 'views/add-noun-form.html'
 })
 export class AddNounFormComponent {
-    private noun: Noun = {
-      favorite: false,
-      gender: Gender.Male, 
-      english: "", 
-      spanish: ""};
+    private favorite: boolean = true;
+    private gender: Gender = Gender.Male;
+    private english: string = "";
+    private spanish: string = "";
 
     constructor(private nounsService: NounsService) {
     }
 
-    public submit(): void
+    public async submit(): Promise<void>
     {
-        this.nounsService
-          .addNoun(this.noun)
-          .subscribe(()=>{});
+        await this.nounsService
+          .addNoun({
+            favorite: this.favorite,
+            gender: this.gender, 
+            english: this.english.trim().toLowerCase(), 
+            spanish: this.spanish.trim().toLowerCase()});
     }    
 }
