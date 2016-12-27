@@ -8,6 +8,8 @@ import { Noun } from "../../api/models/noun.model"
   templateUrl: 'views/add-noun-form.html'
 })
 export class AddNounFormComponent {
+    private Gender = Gender;
+    
     private favorite: boolean = true;
     private gender: Gender = Gender.Male;
     private english: string = "";

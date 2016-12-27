@@ -1,21 +1,52 @@
 <md-card>
-    <h1>Add a noun</h1>
-      <div>
-        <label>English</label>
-        <input type="text" [(ngModel)]="english">
-      </div>
-      <div>
-        <label>Spanish</label>
-        <input type="text" [(ngModel)]="spanish">
-      </div>
-      <div>
-        <label>Gender</label>
-        <input type="radio" name="gender" [(ngModel)]="gender" value="0">Male
-        <input type="radio" name="gender" [(ngModel)]="gender" value="1">Female
-      </div>
-      <div>
-        <label>Favorite</label>
-        <input type="checkbox" [(ngModel)]="favorite">
-      </div>
-      <button md-raised-button color="primary" (click)="submit()">Submit</button>
+  <h2>Add a noun</h2>
+  <div>
+    <md-input
+      type="text"
+      [(ngModel)]="english"
+      #englishInput="ngModel"
+      required="true"
+      placeholder="English"
+      [dividerColor]="(englishInput.pristine || englishInput.valid) ? 'primary' : 'warn'"
+    >
+      <md-hint 
+        *ngIf="!englishInput.pristine && !englishInput.valid" 
+        align="end">
+          Must insert a word
+        </md-hint>
+    </md-input>
+  </div>
+  <div>
+    <md-input
+      type="text"
+      [(ngModel)]="spanish"
+      #spanishInput="ngModel"
+      required="true"
+      placeholder="Spanish"
+      [dividerColor]="(spanishInput.pristine || spanishInput.valid) ? 'primary' : 'warn'"
+    >
+      <md-hint 
+        *ngIf="!spanishInput.pristine && !spanishInput.valid" 
+        align="end">
+          Must insert a word
+        </md-hint>
+    </md-input>
+  </div>
+  <div>
+    <md-radio-group [(ngModel)]="gender">
+      <md-radio-button [value]="Gender.Male">Male</md-radio-button>
+      <md-radio-button [value]="Gender.Female">Female</md-radio-button>
+    </md-radio-group>
+  </div>
+  <div>
+    <md-checkbox [(ngModel)]="favorite">Favorite</md-checkbox>
+  </div>
+  <div>
+    <button md-raised-button 
+      color="primary" 
+      (click)="submit()"
+      [disabled]="!spanishInput.valid || !englishInput.valid">
+      Submit
+    </button>
+  </div>
 </md-card>
