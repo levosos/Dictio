@@ -10,7 +10,7 @@
       [dividerColor]="(english.pristine || english.valid) ? 'primary' : 'warn'"
     >
       <md-hint 
-        *ngIf="!english.pristine && !english.valid" 
+        [hidden]="english.pristine || english.valid" 
         align="end">
           Must insert a word
         </md-hint>
@@ -26,7 +26,7 @@
       [dividerColor]="(spanish.pristine || spanish.valid) ? 'primary' : 'warn'"
     >
       <md-hint 
-        *ngIf="!spanish.pristine && !spanish.valid" 
+        [hidden]="spanish.pristine || spanish.valid" 
         align="end">
           Must insert a word
         </md-hint>
