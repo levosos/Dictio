@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { Http, Response, Headers, RequestOptions } from "@angular/http";
 import { Observable } from "rxjs";
 import { Noun } from "../../api/models/noun.model"
+import { plainToClass } from "class-transformer"
+import 'rxjs/Rx';
 
 @Injectable()
 export class NounsService {
@@ -9,11 +11,12 @@ export class NounsService {
     }
 
     public getAllNouns(): Promise<Noun[]> {
-        return new Promise(resolve => { 
-            this.http
+        return this.http
                 .get("rest/nouns")
-                .subscribe(res => resolve(res.json()))
-        });
+                .map((res: Response) => {
+                    return plainToClass(Noun, res.json());
+                })
+                .toPromise();
     }
     
     public addNoun(noun: Noun): Promise<any> {
@@ -21,10 +24,8 @@ export class NounsService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return new Promise(resolve => {
-            this.http
+        return this.http
                 .post("rest/nouns", bodyString, options)
-                .subscribe(res => resolve())
-            });
+                .toPromise();
     }
 }
