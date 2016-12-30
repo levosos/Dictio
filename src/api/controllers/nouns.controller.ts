@@ -16,10 +16,13 @@ export class NounsController {
     @Post("/")
     @UndefinedResultCode(202)
     public addNoun(@Body({ required: true }) noun: Noun): void {
-        console.log("Adding a noun " + 
-        noun.english + " " + 
-        noun.spanish + " " + 
-        (noun.favorite ? "Favorite " : "Not favorite ") + 
-        (noun.gender == Gender.Male ? "male" : "female"));
+        noun.english = noun.english.trim().toLowerCase();
+        noun.spanish = noun.spanish.trim().toLowerCase();
+
+        console.log("Adding a noun [" + 
+        noun.english + "] [" + 
+        noun.spanish + "] " + 
+        (noun.favorite ? "[Favorite] " : "[Not favorite] ") + 
+        (noun.gender == Gender.Male ? "[Male]" : "[Female]"));
     }
 }

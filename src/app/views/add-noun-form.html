@@ -3,14 +3,14 @@
   <div>
     <md-input
       type="text"
-      [(ngModel)]="english"
-      #englishInput="ngModel"
+      [(ngModel)]="noun.english"
+      #english="ngModel"
       required="true"
       placeholder="English"
-      [dividerColor]="(englishInput.pristine || englishInput.valid) ? 'primary' : 'warn'"
+      [dividerColor]="(english.pristine || english.valid) ? 'primary' : 'warn'"
     >
       <md-hint 
-        *ngIf="!englishInput.pristine && !englishInput.valid" 
+        *ngIf="!english.pristine && !english.valid" 
         align="end">
           Must insert a word
         </md-hint>
@@ -19,33 +19,33 @@
   <div>
     <md-input
       type="text"
-      [(ngModel)]="spanish"
-      #spanishInput="ngModel"
+      [(ngModel)]="noun.spanish"
+      #spanish="ngModel"
       required="true"
       placeholder="Spanish"
-      [dividerColor]="(spanishInput.pristine || spanishInput.valid) ? 'primary' : 'warn'"
+      [dividerColor]="(spanish.pristine || spanish.valid) ? 'primary' : 'warn'"
     >
       <md-hint 
-        *ngIf="!spanishInput.pristine && !spanishInput.valid" 
+        *ngIf="!spanish.pristine && !spanish.valid" 
         align="end">
           Must insert a word
         </md-hint>
     </md-input>
   </div>
   <div>
-    <md-radio-group [(ngModel)]="gender">
+    <md-radio-group [(ngModel)]="noun.gender">
       <md-radio-button [value]="Gender.Male">Male</md-radio-button>
       <md-radio-button [value]="Gender.Female">Female</md-radio-button>
     </md-radio-group>
   </div>
   <div>
-    <md-checkbox [(ngModel)]="favorite">Favorite</md-checkbox>
+    <md-checkbox [(ngModel)]="noun.favorite">Favorite</md-checkbox>
   </div>
   <div>
     <button md-raised-button 
       color="primary" 
       (click)="submit()"
-      [disabled]="!spanishInput.valid || !englishInput.valid">
+      [disabled]="!spanish.valid || !english.valid">
       Submit
     </button>
   </div>
