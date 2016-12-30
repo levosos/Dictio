@@ -12,6 +12,7 @@ import { NounsComponent } from './components/nouns.component';
 import { AddNounFormComponent } from './components/add-noun-form.component';
 
 // Services
+import { HttpService }   from './services/http.service';
 import { NounsService }   from './services/nouns.service';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { NounsService }   from './services/nouns.service';
     FormsModule
   ],
   providers: [
+    HttpService,
     NounsService
   ],
   declarations: [ 
