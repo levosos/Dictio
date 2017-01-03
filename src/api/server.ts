@@ -13,6 +13,10 @@ let app = createExpressServer({
 
 app.use(express.static(path));
 
+app.get('*', function (req, res) {
+  res.redirect('/');
+});
+
 app.listen(port, function () {
   console.log("Dictio is running [port " + port + "] under '" + path + "'");
 });
