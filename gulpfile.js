@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var del = require('del');
 var typescript = require('gulp-tsc');
 var symlink = require('gulp-symlink');
+var sass = require('gulp-sass');
 
 gulp.task('clean', function () {
     return del(['bin/**']);
@@ -35,11 +36,6 @@ gulp.task('static::app::root', function(){
     .pipe(gulp.dest('bin/app/app'))
 });
 
-gulp.task('static::app::styles', function(){
-  return gulp.src(['src/app/styles/dictio-theme.css'])
-    .pipe(gulp.dest('bin/app/app/styles'))
-});
-
 gulp.task('static::app::views', function(){
   return gulp.src(['src/app/views/**/*.html'])
     .pipe(gulp.dest('bin/app/app/views'))
@@ -55,7 +51,13 @@ gulp.task('symlink::api', function(){
     .pipe(symlink('bin/app/app/api', {force: true})) 
 });
 
-gulp.task('static', ['static::app::root', 'static::app::styles', 'static::app::views', 'symlink::node_modules', 'symlink::api']);
+gulp.task('styles', function () {
+  return gulp.src(['src/app/styles/dictio-theme.scss'])
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('bin/app/app/styles'));
+});
+
+gulp.task('static', ['static::app::root', 'styles', 'static::app::views', 'symlink::node_modules', 'symlink::api']);
 
 gulp.task('build', ['build::api', 'build::app'], function() {
   gulp.start('static')
