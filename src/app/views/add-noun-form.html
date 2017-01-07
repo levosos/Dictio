@@ -1,47 +1,47 @@
 <md-card>
   <h2>Add a noun</h2>
   <div>
-    <md-input-container [dividerColor]="(english.pristine || english.valid) ? 'primary' : 'warn'">
+    <md-input-container [dividerColor]="(englishInput.pristine || englishInput.valid) ? 'primary' : 'warn'">
       <input 
         md-input
         type="text"
-        [(ngModel)]="noun.english"
-        #english="ngModel"
+        [(ngModel)]="english"
+        #englishInput="ngModel"
         required="true"
         placeholder="English">
-      <md-hint *ngIf="!english.pristine && !english.valid" align="end">
+      <md-hint *ngIf="!englishInput.pristine && !englishInput.valid" align="end">
         Must insert a word
       </md-hint>
     </md-input-container>
   </div>
   <div>
-    <md-input-container [dividerColor]="(spanish.pristine || spanish.valid) ? 'primary' : 'warn'">
+    <md-input-container [dividerColor]="(spanishInput.pristine || spanishInput.valid) ? 'primary' : 'warn'">
       <input 
         md-input
         type="text"
-        [(ngModel)]="noun.spanish"
-        #spanish="ngModel"
+        [(ngModel)]="spanish"
+        #spanishInput="ngModel"
         required="true"
         placeholder="Spanish">
-      <md-hint *ngIf="!spanish.pristine && !spanish.valid" align="end">
+      <md-hint *ngIf="!spanishInput.pristine && !spanishInput.valid" align="end">
         Must insert a word
       </md-hint>
     </md-input-container>
   </div>
   <div>
-    <md-radio-group [(ngModel)]="noun.gender">
+    <md-radio-group [(ngModel)]="gender">
       <md-radio-button [value]="Gender.Male">Male</md-radio-button>
       <md-radio-button [value]="Gender.Female">Female</md-radio-button>
     </md-radio-group>
   </div>
   <div>
-    <md-checkbox [(ngModel)]="noun.favorite">Favorite</md-checkbox>
+    <md-checkbox [(ngModel)]="favorite">Favorite</md-checkbox>
   </div>
   <div>
     <button md-raised-button 
       color="primary" 
-      (click)="submit()"
-      [disabled]="!spanish.valid || !english.valid">
+      (click)="submitAsync()"
+      [disabled]="!spanishInput.valid || !englishInput.valid">
       Submit
     </button>
   </div>

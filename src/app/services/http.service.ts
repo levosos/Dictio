@@ -8,7 +8,7 @@ export class HttpService {
     constructor(private http: Http) {
     }
 
-    public get(url: string): Promise<any> {
+    public getAsync(url: string): Promise<any> {
         return this.http
                 .get(url)
                 .map((res: Response) => {
@@ -17,14 +17,19 @@ export class HttpService {
                 .toPromise();
     }
     
-    public post(url: string, body: any): Promise<void> {
+    public postAsync(url: string, body: any): Promise<any> {
         let bodyString = JSON.stringify(body);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
         return this.http
                 .post(url, bodyString, options)
-                .map((res: Response) => {})
+                .map((res: Response) => {
+                    if (res.arrayBuffer().byteLength != 0) {
+                        // Call json() only when the response has a body
+                        return res.json();
+                    }
+                })
                 .toPromise();
     }
 }

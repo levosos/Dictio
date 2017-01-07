@@ -8,21 +8,17 @@ export class NounsController {
     @UndefinedResultCode(500)
     public getAllNounsAsync(): Promise<Noun[]> {
         return Promise.resolve([
-            {favorite: false, english: "Hello", spanish: "World", gender: Gender.Male},
-            {favorite: true, english: "Was", spanish: "UPP", gender: Gender.Female}
-            ]);
+            new Noun(false, Gender.Male, "friend", "amigo"), 
+            new Noun(true, Gender.Female, "bed", "cama")]);
     }
 
     @Post("/")
     @UndefinedResultCode(202)
     public addNoun(@Body({ required: true }) noun: Noun): void {
-        noun.english = noun.english.trim().toLowerCase();
-        noun.spanish = noun.spanish.trim().toLowerCase();
-
         console.log("Adding a noun [" + 
-        noun.english + "] [" + 
-        noun.spanish + "] " + 
-        (noun.favorite ? "[Favorite] " : "[Not favorite] ") + 
-        (noun.gender == Gender.Male ? "[Male]" : "[Female]"));
+            noun.english + "] [" + 
+            noun.spanish + "] " + 
+            (noun.favorite ? "[Favorite] " : "[Not favorite] ") + 
+            (noun.gender == Gender.Male ? "[Male]" : "[Female]"));
     }
 }

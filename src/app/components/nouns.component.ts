@@ -12,6 +12,6 @@ export class NounsComponent implements OnInit {
   }
   
   public async ngOnInit(): Promise<void> {
-    this.nouns = await this.nounsService.getAllNouns();
+    this.nouns = await this.nounsService.getAllNounsAsync();
   }
 }

@@ -10,18 +10,22 @@ import { Noun } from "../../api/models/noun.model"
 export class AddNounFormComponent {
     private Gender = Gender;
     
-    private noun: Noun = {
-      favorite: true,
-      gender: Gender.Male,
-      english: "",
-      spanish: ""
-    }
+    private favorite: boolean = true;
+    private gender: Gender = Gender.Male;
+    private english: string = "";
+    private spanish: string = "";
 
     constructor(private nounsService: NounsService) {
     }
 
-    public async submit(): Promise<void>
+    public async submitAsync(): Promise<void>
     {
-        await this.nounsService.addNoun(this.noun);
+        let noun = new Noun(
+          this.favorite, 
+          this.gender, 
+          this.english, 
+          this.spanish);
+          
+        await this.nounsService.addNounAsync(noun);
     }    
 }

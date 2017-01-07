@@ -7,11 +7,11 @@ export class NounsService {
     constructor(private http: HttpService) {
     }
 
-    public getAllNouns(): Promise<Noun[]> {
-        return this.http.get("rest/nouns");
+    public getAllNounsAsync(): Promise<Noun[]> {
+        return this.http.getAsync("rest/nouns");
     }
     
-    public addNoun(noun: Noun): Promise<void> {
-        return this.http.post("rest/nouns", noun);
+    public addNounAsync(noun: Noun): Promise<void> {
+        return this.http.postAsync("rest/nouns", noun);
     }
 }

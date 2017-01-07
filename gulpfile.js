@@ -30,6 +30,8 @@ gulp.task('build::app', function(){
     .pipe(gulp.dest('bin/app'))
 });
 
+gulp.task('build', ['build::api', 'build::app']);
+
 gulp.task('static::app::root', function(){
   return gulp.src(['src/app/index.html',
     'src/app/systemjs.config.js'])
@@ -59,12 +61,12 @@ gulp.task('styles', function () {
 
 gulp.task('static', ['static::app::root', 'styles', 'static::app::views', 'symlink::node_modules', 'symlink::api']);
 
-gulp.task('build', ['build::api', 'build::app'], function() {
+gulp.task('buildall', ['build'], function() {
   gulp.start('static')
 });
 
 gulp.task('rebuild', ['clean'], function () {
-  gulp.start('build');
+  gulp.start('buildall');
 });
 
 gulp.task('default', ['rebuild']);
