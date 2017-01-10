@@ -1,6 +1,7 @@
 import { JsonController, Post, Body, UndefinedResultCode, UnauthorizedError } from 'routing-controllers';
 import * as jwt from 'jsonwebtoken';
 import { Credentials } from '../models/credentials.model';
+import { Secret } from '../models/globals.model';
 
 @JsonController('/token')
 export class TokensController {
@@ -10,9 +11,9 @@ export class TokensController {
         if (credentials.username != 'admin' ||
             credentials.password != 'pass')
         {
-            throw new UnauthorizedError('Wrong credentials');
+            throw new UnauthorizedError();
         }
 
-        return jwt.sign(credentials, 'secret');
+        return jwt.sign(credentials, Secret);
     }
 }

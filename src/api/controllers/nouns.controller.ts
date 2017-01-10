@@ -1,5 +1,6 @@
-import { JsonController, Get, Post, Body, UndefinedResultCode } from 'routing-controllers';
-import { Gender } from '../models/globals.model';
+import { JsonController, Get, Post, Body, UndefinedResultCode, UseBefore } from 'routing-controllers';
+import * as jwt from 'express-jwt';
+import { Gender, Secret } from '../models/globals.model';
 import { Noun } from '../models/noun.model';
 
 @JsonController('/nouns')
@@ -14,6 +15,7 @@ export class NounsController {
 
     @Post('/')
     @UndefinedResultCode(202)
+    @UseBefore(jwt({secret: Secret}))
     public addNoun(@Body({ required: true }) noun: Noun): void {
         console.log('Adding a noun [' + 
             noun.english + '] [' + 
