@@ -6,20 +6,23 @@ import { RouterModule }   from '@angular/router';
 import { FormsModule }    from '@angular/forms';
 
 // Components
-import { AppComponent }   from './components/app.component';
-import { MainComponent }  from './components/main.component';
-import { NounsComponent } from './components/nouns.component';
+import { AppComponent }         from './components/app.component';
+import { MainComponent }        from './components/main.component';
+import { NounsComponent }       from './components/nouns.component';
 import { AddNounFormComponent } from './components/add-noun-form.component';
+import { LoginFormComponent }   from './components/login-form.component';
 
 // Services
 import { HttpService }   from './services/http.service';
-import { NounsService }   from './services/nouns.service';
+import { NounsService }  from './services/nouns.service';
+import { TokenService }  from './services/token.service'; 
 
 @NgModule({
   imports:      [ 
     BrowserModule, 
     MaterialModule.forRoot(),
     RouterModule.forRoot([
+      { path: 'login',  component: LoginFormComponent },
       { path: 'nouns',  component: NounsComponent },
       { path: '',       component: MainComponent }
     ]),
@@ -27,13 +30,15 @@ import { NounsService }   from './services/nouns.service';
   ],
   providers: [
     HttpService,
-    NounsService
+    NounsService,
+    TokenService
   ],
   declarations: [ 
     AppComponent, 
     MainComponent, 
     NounsComponent,
-    AddNounFormComponent
+    AddNounFormComponent,
+    LoginFormComponent
   ],
   bootstrap:    [ AppComponent ]
 })

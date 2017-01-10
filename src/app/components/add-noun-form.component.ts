@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NounsService } from "../services/nouns.service"
-import { Gender } from "../../api/models/globals.model"
-import { Noun } from "../../api/models/noun.model"
+import { NounsService } from '../services/nouns.service';
+import { Gender } from '../../api/models/globals.model';
+import { Noun } from '../../api/models/noun.model';
 
 @Component({
   selector: 'add-noun-form',
@@ -12,8 +12,8 @@ export class AddNounFormComponent {
     
     private favorite: boolean = true;
     private gender: Gender = Gender.Male;
-    private english: string = "";
-    private spanish: string = "";
+    private english: string = '';
+    private spanish: string = '';
 
     constructor(private nounsService: NounsService) {
     }

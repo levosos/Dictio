@@ -1,0 +1,39 @@
+<md-card>
+  <h2>Login</h2>
+  <div>
+    <md-input-container [dividerColor]="(!hasError && (usernameInput.pristine || usernameInput.valid)) ? 'primary' : 'warn'">
+      <input 
+        md-input
+        type="text"
+        [(ngModel)]="username"
+        #usernameInput="ngModel"
+        required="true"
+        placeholder="User">
+      <md-hint *ngIf="!hasError && !usernameInput.pristine && !usernameInput.valid" align="end">
+        Must insert username
+      </md-hint>
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container [dividerColor]="(!hasError && (passwordInput.pristine || passwordInput.valid)) ? 'primary' : 'warn'">
+      <input 
+        md-input
+        type="password"
+        [(ngModel)]="password"
+        #passwordInput="ngModel"
+        required="true"
+        placeholder="Password">
+      <md-hint *ngIf="!hasError && !passwordInput.pristine && !passwordInput.valid" align="end">
+        Must insert password
+      </md-hint>
+    </md-input-container>
+  </div>
+  <div>
+    <button md-raised-button 
+      [color]="hasError ? 'warn' : 'primary'" 
+      (click)="loginAsync()"
+      [disabled]="!usernameInput.valid || !passwordInput.valid">
+      Login
+    </button>
+  </div>
+</md-card>

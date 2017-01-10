@@ -1,4 +1,4 @@
-import { Gender } from "./globals.model";
+import { Gender } from './globals.model';
 
 export class Noun {
     constructor(
