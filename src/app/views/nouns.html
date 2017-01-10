@@ -1,9 +1,7 @@
 <md-toolbar color="primary">
   <span>Nouns</span>
 </md-toolbar>
-<hr/>
-<add-noun-form></add-noun-form>
-<hr/>
+<add-noun-form *ngIf="tokenService.isLoggedIn()"></add-noun-form>
 <md-card>
     <table>
         <thead>

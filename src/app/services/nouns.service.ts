@@ -14,6 +14,6 @@ export class NounsService {
     }
     
     public addNounAsync(noun: Noun): Promise<void> {
-        return this.http.postAsync(NounsService.RestPath, noun);
+        return this.http.authPostAsync(NounsService.RestPath, noun);
     }
 }

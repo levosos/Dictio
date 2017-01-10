@@ -4,7 +4,8 @@
 <!-- Footer -->
 <br/>
 <md-card>
-  <a routerLink="">index</a>
+  <button md-button routerLink="">index</button>
   <br/>
-  <a routerLink="login">login</a>
+  <button *ngIf="!tokenService.isLoggedIn()" md-button routerLink="login">login</button>
+  <button *ngIf="tokenService.isLoggedIn()" md-button (click)="tokenService.logout()">logout</button>
 </md-card>

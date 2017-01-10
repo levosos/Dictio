@@ -23,7 +23,7 @@
       '@angular/forms':                     'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade':                   'npm:@angular/upgrade/bundles/upgrade.umd.js',
       '@angular/material':                  'npm:@angular/material/bundles/material.umd.js',
-      // other libraries
+      'angular2-jwt':                       'npm:angular2-jwt/angular2-jwt.js',
       'rxjs':                               'npm:rxjs',
       'angular-in-memory-web-api':          'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
     },

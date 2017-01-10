@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { TokenService } from '../services/token.service';
 import { Credentials } from '../../api/models/credentials.model';
 
@@ -12,8 +11,7 @@ export class LoginFormComponent {
     private password: string = '';
     private hasError: boolean = false;
 
-    constructor(private tokenService: TokenService,
-                private router: Router) {
+    constructor(private tokenService: TokenService) {
     }
 
     public async loginAsync(): Promise<void>
@@ -24,7 +22,6 @@ export class LoginFormComponent {
         
         try {
             await this.tokenService.loginAsync(credentials);
-            this.router.navigateByUrl('');            
         } catch (e) {
             this.hasError = true;
         }

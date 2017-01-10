@@ -4,6 +4,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 import { RouterModule }   from '@angular/router';
 import { FormsModule }    from '@angular/forms';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 // Components
 import { AppComponent }         from './components/app.component';
@@ -29,6 +30,7 @@ import { TokenService }  from './services/token.service';
     FormsModule
   ],
   providers: [
+    AUTH_PROVIDERS,
     HttpService,
     NounsService,
     TokenService
