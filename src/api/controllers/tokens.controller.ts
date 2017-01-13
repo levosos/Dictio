@@ -2,18 +2,19 @@ import { JsonController, Post, Body, UndefinedResultCode, UnauthorizedError } fr
 import * as jwt from 'jsonwebtoken';
 import { Credentials } from '../models/credentials.model';
 import { Secret } from '../models/globals.model';
+import * as users from '../repositories/users.repository';
 
 @JsonController('/token')
 export class TokensController {
     @Post('/')
     @UndefinedResultCode(500)
-    public loginUser(@Body({ required: true }) credentials: Credentials): string {
-        if (credentials.username != 'admin' ||
-            credentials.password != 'pass')
-        {
+    public async loginUser(@Body({ required: true }) credentials: Credentials): Promise<string> {
+        const user = await users.findUser(credentials.username);
+
+        if (user == undefined || user.password != credentials.password) {
             throw new UnauthorizedError();
         }
 
-        return jwt.sign(credentials, Secret);
+        return jwt.sign(user, Secret);
     }
 }
