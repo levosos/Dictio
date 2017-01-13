@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from './http.service';
 import { Credentials } from '../../api/models/credentials.model';
-import { tokenNotExpired } from 'angular2-jwt';
+import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
+import { User, Role } from '../../api/entities/user.entity';
 
 @Injectable()
 export class TokenService {
@@ -11,6 +12,25 @@ export class TokenService {
 
     constructor(private http: HttpService,
                 private router: Router) {
+    }
+
+    public get user(): User | undefined {
+        if (!this.isLoggedIn()) {
+            return undefined;
+        }
+
+        const token = localStorage.getItem(TokenService.LocalStorageKey);
+        return new JwtHelper().decodeToken(token);
+    }
+
+    public isAdmin(): boolean {
+        const user = this.user;
+        
+        if (user == undefined) {
+            return false;
+        }
+
+        return user.role == Role.Admin;
     }
 
     public isLoggedIn(): boolean {
