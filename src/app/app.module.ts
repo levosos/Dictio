@@ -9,6 +9,7 @@ import { AUTH_PROVIDERS } from 'angular2-jwt';
 // Components
 import { AppComponent }         from './components/app.component';
 import { MainComponent }        from './components/main.component';
+import { HomeComponent }        from './components/home.component';
 import { NounsComponent }       from './components/nouns.component';
 import { AddNounFormComponent } from './components/add-noun-form.component';
 import { LoginFormComponent }   from './components/login-form.component';
@@ -23,9 +24,14 @@ import { TokenService }  from './services/token.service';
     BrowserModule, 
     MaterialModule.forRoot(),
     RouterModule.forRoot([
-      { path: 'login',  component: LoginFormComponent },
-      { path: 'nouns',  component: NounsComponent },
-      { path: '',       component: MainComponent }
+      { path: '', component: MainComponent, 
+        children: 
+        [
+          { path: '', component: HomeComponent },
+          { path: 'nouns', component: NounsComponent }
+        ]
+      },
+      { path: 'login',  component: LoginFormComponent }
     ]),
     FormsModule
   ],
@@ -38,6 +44,7 @@ import { TokenService }  from './services/token.service';
   declarations: [ 
     AppComponent, 
     MainComponent, 
+    HomeComponent,
     NounsComponent,
     AddNounFormComponent,
     LoginFormComponent

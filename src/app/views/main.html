@@ -1,7 +1,10 @@
 <md-toolbar color="primary">
   <span>Dictio</span>
 </md-toolbar>
+<router-outlet></router-outlet>
 <md-card>
-    <h2>View</h2>
-    <button md-raised-button color="primary" routerLink="/nouns">Nouns</button>
+  <button md-button routerLink="">index</button>
+  <br/>
+  <button *ngIf="!tokenService.isLoggedIn()" md-button routerLink="/login">login</button>
+  <button *ngIf="tokenService.isLoggedIn()" md-button (click)="tokenService.logout()">logout</button>
 </md-card>

@@ -1,11 +1,1 @@
-<!-- Views container -->
 <router-outlet></router-outlet>
-
-<!-- Footer -->
-<br/>
-<md-card>
-  <button md-button routerLink="">index</button>
-  <br/>
-  <button *ngIf="!tokenService.isLoggedIn()" md-button routerLink="login">login</button>
-  <button *ngIf="tokenService.isLoggedIn()" md-button (click)="tokenService.logout()">logout</button>
-</md-card>
