@@ -18,4 +18,7 @@ export class Noun {
 
     @Column()
     spanish: string;
+
+    @Column()
+    countable: boolean;
 }

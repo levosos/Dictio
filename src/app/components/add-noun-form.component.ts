@@ -12,6 +12,7 @@ export class AddNounFormComponent {
     private gender: Gender = Gender.Masculine;
     private english: string = '';
     private spanish: string = '';
+    private countable: boolean = true;
 
     constructor(private nounsService: NounsService) {
     }
@@ -22,7 +23,8 @@ export class AddNounFormComponent {
           'id': undefined,
           'gender': this.gender,
           'english': this.english.trim().toLowerCase(),
-          'spanish': this.spanish.trim().toLowerCase()
+          'spanish': this.spanish.trim().toLowerCase(),
+          'countable': this.countable
         };
           
         await this.nounsService.addNounAsync(noun);

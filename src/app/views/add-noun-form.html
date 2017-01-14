@@ -35,6 +35,9 @@
     </md-radio-group>
   </div>
   <div>
+    <md-checkbox [(ngModel)]="countable">Countable</md-checkbox>
+  </div>
+  <div>
     <button md-raised-button 
       color="primary" 
       (click)="submitAsync()"

@@ -4,7 +4,7 @@
         <md-list-item *ngFor="let noun of nouns">
             <p md-line><b>{{noun.spanish}}</b></p>
             <p md-line>{{noun.english}}</p>
-            <p md-line style="color:gray">{{noun.gender == Gender.Masculine ? 'masculine' : 'feminine'}}</p>
+            <p md-line style="color:gray">{{(noun.gender == Gender.Masculine ? 'masculine' : 'feminine') + (noun.countable ? '' : ' | not countable')}}</p>
         </md-list-item>
     </md-list>
     <br/>
