@@ -6,14 +6,12 @@
             <tr>
                 <th>S</th>
                 <th>E</th>
-                <th>F</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let noun of nouns">
-                <td>{{ noun._spanish }}</td>
-                <td>{{ noun._english }}</td>
-                <td>{{ noun.favorite ? "F" : "NF" }}</td>
+                <td>{{ noun.spanish }}</td>
+                <td>{{ noun.english }}</td>
             </tr>
         </tbody>
     </table>

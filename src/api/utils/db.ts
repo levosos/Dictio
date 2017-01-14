@@ -1,5 +1,6 @@
 import { createConnection, Connection } from 'typeorm';
 import { User } from '../entities/user.entity';
+import { Noun } from '../entities/noun.entity';
 
 export class DbConnection {
     private static g__connection: Connection = undefined;
@@ -16,7 +17,8 @@ export class DbConnection {
                 extra: {'ssl': true}
             },
             entities: [
-                User
+                User,
+                Noun
             ]});
     }
 

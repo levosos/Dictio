@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
-import { Noun } from '../../api/models/noun.model';
+import { Noun } from '../../api/entities/noun.entity';
 
 @Injectable()
 export class NounsService {

@@ -1,7 +1,7 @@
 import { JsonController, Post, Body, UndefinedResultCode, UnauthorizedError } from 'routing-controllers';
 import * as jwt from 'jsonwebtoken';
 import { Credentials } from '../models/credentials.model';
-import { Secret } from '../models/globals.model';
+import { Secret } from '../utils/constants';
 import * as users from '../repositories/users.repository';
 
 @JsonController('/token')

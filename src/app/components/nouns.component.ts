@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NounsService } from '../services/nouns.service';
 import { TokenService } from '../services/token.service';
-import { Noun } from '../../api/models/noun.model';
+import { Noun } from '../../api/entities/noun.entity';
 
 @Component({
   templateUrl: 'views/nouns.html'
