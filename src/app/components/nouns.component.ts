@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NounsService } from '../services/nouns.service';
 import { TokenService } from '../services/token.service';
-import { Noun } from '../../api/entities/noun.entity';
+import { Noun, Gender } from '../../api/entities/noun.entity';
 
 @Component({
   templateUrl: 'views/nouns.html'
 })
 export class NounsComponent implements OnInit {
+  private Gender = Gender;
+
   private nouns: Noun[];
 
   constructor(private nounsService: NounsService,

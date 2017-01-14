@@ -1,18 +1,13 @@
-<add-noun-form *ngIf="tokenService.isAdmin()"></add-noun-form>
 <md-card>
     <h2>Nouns</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>S</th>
-                <th>E</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let noun of nouns">
-                <td>{{ noun.spanish }}</td>
-                <td>{{ noun.english }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <md-list>
+        <md-list-item *ngFor="let noun of nouns">
+            <p md-line><b>{{noun.spanish}}</b></p>
+            <p md-line>{{noun.english}}</p>
+            <p md-line style="color:gray">{{noun.gender == Gender.Masculine ? 'masculine' : 'feminine'}}</p>
+        </md-list-item>
+    </md-list>
+    <br/>
+    <p>{{nouns?.length}} items</p>
 </md-card>
+<add-noun-form *ngIf="tokenService.isAdmin()"></add-noun-form>
