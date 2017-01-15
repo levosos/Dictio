@@ -1,13 +1,14 @@
 <md-card>
     <h2>Nouns</h2>
+    <md-progress-bar *ngIf="!nouns" mode="indeterminate"></md-progress-bar>
     <md-list>
         <md-list-item *ngFor="let noun of nouns">
             <p md-line><b>{{noun.spanish}}</b></p>
             <p md-line>{{noun.english}}</p>
-            <p md-line style="color:gray">{{(noun.gender == Gender.Masculine ? 'masculine' : 'feminine') + (noun.countable ? '' : ' | not countable')}}</p>
+            <p md-line style="color:gray">{{(noun.gender == Gender.Masculine ? 'masculine' : 'feminine') + (noun.countable ? '' : ' | uncountable')}}</p>
         </md-list-item>
     </md-list>
     <br/>
-    <p>{{nouns?.length}} items</p>
+    <p *ngIf="nouns">{{nouns.length}} nouns</p>
 </md-card>
 <add-noun-form *ngIf="tokenService.isAdmin()"></add-noun-form>
