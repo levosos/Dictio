@@ -39,7 +39,7 @@ gulp.task('static::app::root', function(){
 });
 
 gulp.task('static::app::views', function(){
-  return gulp.src(['src/app/views/**/*.html'])
+  return gulp.src(['src/app/views/**/*'])
     .pipe(gulp.dest('bin/app/app/views'))
 });
 
