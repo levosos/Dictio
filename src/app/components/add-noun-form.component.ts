@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NounsService } from '../services/nouns.service';
+import { UtilsService } from '../services/utils.service';
 import { Noun, Gender } from '../../api/entities/noun.entity';
 
 @Component({
@@ -14,7 +15,8 @@ export class AddNounFormComponent {
     private spanish: string = '';
     private countable: boolean = true;
 
-    constructor(private nounsService: NounsService) {
+    constructor(private nounsService: NounsService,
+                private utils: UtilsService) {
     }
 
     public async submitAsync(): Promise<void>
@@ -28,5 +30,7 @@ export class AddNounFormComponent {
         };
           
         await this.nounsService.addNounAsync(noun);
+
+        this.utils.toast('Added noun \'' + this.english + '\' \'' + this.spanish + '\'');
     }    
 }

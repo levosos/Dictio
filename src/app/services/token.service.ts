@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from './http.service';
+import { UtilsService } from './utils.service';
 import { Credentials } from '../../api/models/credentials.model';
 import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 import { User, Role } from '../../api/entities/user.entity';
@@ -11,6 +12,7 @@ export class TokenService {
     private static LocalStorageKey: string = 'id_token';
 
     constructor(private http: HttpService,
+                private utils: UtilsService,
                 private router: Router) {
     }
 
@@ -41,12 +43,14 @@ export class TokenService {
         let token: string = await this.http.postAsync(TokenService.RestPath, credentials);
         localStorage.setItem(TokenService.LocalStorageKey, token);
         
+        this.utils.toast('Logged in as \'' + this.utils.capitalizeString(this.user.username) + '\'');
         this.redirect();
     }
 
     public logout(): void {
         localStorage.removeItem(TokenService.LocalStorageKey);
         
+        this.utils.toast('Logged out');
         this.redirect();
     }
 

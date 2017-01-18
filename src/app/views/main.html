@@ -1,7 +1,7 @@
 <md-toolbar color="primary">
   <span>Dictio</span>
   <span style="flex: 1 1 auto"></span> <!-- this is to fill all the gap between these two spans -->
-  <span>{{tokenService.user?.username}}</span>
+  <span *ngIf="tokenService.isLoggedIn()">{{utils.capitalizeString(tokenService.user.username)}}</span>
 </md-toolbar>
 <router-outlet></router-outlet>
 <md-card>

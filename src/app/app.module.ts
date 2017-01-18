@@ -18,6 +18,7 @@ import { LoginFormComponent }   from './components/login-form.component';
 import { HttpService }   from './services/http.service';
 import { NounsService }  from './services/nouns.service';
 import { TokenService }  from './services/token.service'; 
+import { UtilsService }  from './services/utils.service'; 
 
 @NgModule({
   imports:      [ 
@@ -39,7 +40,8 @@ import { TokenService }  from './services/token.service';
     AUTH_PROVIDERS,
     HttpService,
     NounsService,
-    TokenService
+    TokenService,
+    UtilsService
   ],
   declarations: [ 
     AppComponent, 
