@@ -15,9 +15,9 @@ export class UtilsService {
     }
 
     public stringContainsIgnoreCase(str: string, substr: string): boolean {
-        str = str.toLowerCase();
-        substr = substr.toLowerCase();
-        
+        str = str.toLowerCase().trim();
+        substr = substr.toLowerCase().trim();
+
         return str.indexOf(substr) != -1;
     }
 }
