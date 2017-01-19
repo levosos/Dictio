@@ -13,4 +13,11 @@ export class UtilsService {
     public capitalizeString(str: string): string {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
+
+    public stringContainsIgnoreCase(str: string, substr: string): boolean {
+        str = str.toLowerCase();
+        substr = substr.toLowerCase();
+        
+        return str.indexOf(substr) != -1;
+    }
 }

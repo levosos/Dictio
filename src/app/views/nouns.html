@@ -1,6 +1,15 @@
+<add-noun-form *ngIf="tokenService.isAdmin()"></add-noun-form>
 <md-card>
     <h2>Nouns</h2>
     <md-progress-bar *ngIf="!nouns" mode="indeterminate"></md-progress-bar>
+    <md-input-container *ngIf="nouns">
+      <input 
+        md-input
+        type="text"
+        [(ngModel)]="filter"
+        (ngModelChange)="filterChanged()"
+        placeholder="Search">
+    </md-input-container>
     <md-list>
         <md-list-item *ngFor="let noun of nouns">
             <p md-line><b>{{noun.spanish}}</b></p>
@@ -11,4 +20,3 @@
     <br/>
     <p *ngIf="nouns">{{nouns.length}} nouns</p>
 </md-card>
-<add-noun-form *ngIf="tokenService.isAdmin()"></add-noun-form>
