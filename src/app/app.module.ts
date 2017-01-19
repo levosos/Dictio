@@ -33,7 +33,7 @@ import { UtilsService }  from './services/utils.service';
         ]
       },
       { path: 'login',  component: LoginFormComponent }
-    ]),
+    ], { useHash: true}),
     FormsModule
   ],
   providers: [
