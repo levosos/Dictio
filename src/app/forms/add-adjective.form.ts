@@ -5,9 +5,9 @@ import { Adjective } from '../../api/entities/adjective.entity';
 
 @Component({
   selector: 'add-adjective-form',
-  templateUrl: 'views/add-adjective-form.html'
+  templateUrl: 'views/add-adjective.form.html'
 })
-export class AddAdjectiveFormComponent {
+export class AddAdjectiveForm {
     private english: string = '';
     private spanish: string = '';
     private formable: boolean = true;

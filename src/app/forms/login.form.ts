@@ -3,10 +3,9 @@ import { TokenService } from '../services/token.service';
 import { Credentials } from '../../api/models/credentials.model';
 
 @Component({
-  selector: 'login-form',
-  templateUrl: 'views/login-form.html'
+  templateUrl: 'views/login.form.html'
 })
-export class LoginFormComponent {
+export class LoginForm {
     private username: string = '';
     private password: string = '';
     private hasError: boolean = false;

@@ -5,9 +5,9 @@ import { Noun, Gender } from '../../api/entities/noun.entity';
 
 @Component({
   selector: 'add-noun-form',
-  templateUrl: 'views/add-noun-form.html'
+  templateUrl: 'views/add-noun.form.html'
 })
-export class AddNounFormComponent {
+export class AddNounForm {
     private Gender = Gender;
     
     private gender: Gender = Gender.Masculine;

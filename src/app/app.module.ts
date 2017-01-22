@@ -10,11 +10,15 @@ import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AppComponent }               from './components/app.component';
 import { MainComponent }              from './components/main.component';
 import { HomeComponent }              from './components/home.component';
-import { NounsComponent }             from './components/nouns.component';
-import { AdjectivesComponent }        from './components/adjectives.component';
-import { AddNounFormComponent }       from './components/add-noun-form.component';
-import { AddAdjectiveFormComponent }  from './components/add-adjective-form.component';
-import { LoginFormComponent }         from './components/login-form.component';
+
+// Pages
+import { NounsPage }        from './pages/nouns.page';
+import { AdjectivesPage }   from './pages/adjectives.page';
+
+// Forms
+import { AddNounForm }      from './forms/add-noun.form';
+import { AddAdjectiveForm } from './forms/add-adjective.form';
+import { LoginForm }        from './forms/login.form';
 
 // Services
 import { HttpService }        from './services/http.service';
@@ -32,11 +36,11 @@ import { UtilsService }       from './services/utils.service';
         children: 
         [
           { path: '', component: HomeComponent },
-          { path: 'nouns', component: NounsComponent },
-          { path: 'adjectives', component: AdjectivesComponent }
+          { path: 'nouns', component: NounsPage },
+          { path: 'adjectives', component: AdjectivesPage }
         ]
       },
-      { path: 'login',  component: LoginFormComponent }
+      { path: 'login',  component: LoginForm }
     ], { useHash: true}),
     FormsModule
   ],
@@ -49,14 +53,19 @@ import { UtilsService }       from './services/utils.service';
     UtilsService
   ],
   declarations: [ 
+    // Components
     AppComponent, 
     MainComponent, 
     HomeComponent,
-    NounsComponent,
-    AdjectivesComponent,
-    AddNounFormComponent,
-    AddAdjectiveFormComponent,
-    LoginFormComponent
+    
+    // Pages
+    NounsPage,
+    AdjectivesPage,
+
+    // Forms
+    AddNounForm,
+    AddAdjectiveForm,
+    LoginForm
   ],
   bootstrap:    [ AppComponent ]
 })

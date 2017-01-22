@@ -5,9 +5,9 @@ import { UtilsService } from '../services/utils.service';
 import { Noun, Gender } from '../../api/entities/noun.entity';
 
 @Component({
-  templateUrl: 'views/nouns.html'
+  templateUrl: 'views/nouns.page.html'
 })
-export class NounsComponent implements OnInit {
+export class NounsPage implements OnInit {
   private Gender = Gender;
 
   private cache: Noun[];

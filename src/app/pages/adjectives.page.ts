@@ -5,9 +5,9 @@ import { UtilsService } from '../services/utils.service';
 import { Adjective } from '../../api/entities/adjective.entity';
 
 @Component({
-  templateUrl: 'views/adjectives.html'
+  templateUrl: 'views/adjectives.page.html'
 })
-export class AdjectivesComponent implements OnInit {
+export class AdjectivesPage implements OnInit {
   private cache: Adjective[];
   private adjectives: Adjective[];
   private filter: string;

@@ -2,6 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'dictio-app',
-  templateUrl: 'views/app.html'
+  templateUrl: 'views/app.component.html'
 })
 export class AppComponent { }
