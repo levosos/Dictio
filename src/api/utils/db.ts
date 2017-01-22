@@ -1,6 +1,7 @@
 import { createConnection, Connection } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { Noun } from '../entities/noun.entity';
+import { Adjective } from '../entities/adjective.entity';
 
 export class DbConnection {
     private static g__connection: Connection = undefined;
@@ -18,7 +19,8 @@ export class DbConnection {
             },
             entities: [
                 User,
-                Noun
+                Noun,
+                Adjective
             ]});
     }
 

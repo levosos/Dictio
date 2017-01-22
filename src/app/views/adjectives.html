@@ -1,0 +1,22 @@
+<add-adjective-form *ngIf="tokenService.isAdmin()"></add-adjective-form>
+<md-card>
+    <h2>Adjectives</h2>
+    <md-progress-bar *ngIf="!adjectives" mode="indeterminate"></md-progress-bar>
+    <md-input-container *ngIf="adjectives">
+      <input 
+        md-input
+        type="text"
+        [(ngModel)]="filter"
+        (ngModelChange)="filterChanged()"
+        placeholder="Search">
+    </md-input-container>
+    <md-list>
+        <md-list-item *ngFor="let adjective of adjectives">
+            <p md-line><b>{{adjective.spanish}}</b></p>
+            <p md-line>{{adjective.english}}</p>
+            <p md-line *ngIf="!adjective.formable" style="color:gray">unformable</p>
+        </md-list-item>
+    </md-list>
+    <br/>
+    <p *ngIf="adjectives">{{adjectives.length}} adjectives</p>
+</md-card>

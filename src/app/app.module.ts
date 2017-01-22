@@ -7,18 +7,21 @@ import { FormsModule }    from '@angular/forms';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 // Components
-import { AppComponent }         from './components/app.component';
-import { MainComponent }        from './components/main.component';
-import { HomeComponent }        from './components/home.component';
-import { NounsComponent }       from './components/nouns.component';
-import { AddNounFormComponent } from './components/add-noun-form.component';
-import { LoginFormComponent }   from './components/login-form.component';
+import { AppComponent }               from './components/app.component';
+import { MainComponent }              from './components/main.component';
+import { HomeComponent }              from './components/home.component';
+import { NounsComponent }             from './components/nouns.component';
+import { AdjectivesComponent }        from './components/adjectives.component';
+import { AddNounFormComponent }       from './components/add-noun-form.component';
+import { AddAdjectiveFormComponent }  from './components/add-adjective-form.component';
+import { LoginFormComponent }         from './components/login-form.component';
 
 // Services
-import { HttpService }   from './services/http.service';
-import { NounsService }  from './services/nouns.service';
-import { TokenService }  from './services/token.service'; 
-import { UtilsService }  from './services/utils.service'; 
+import { HttpService }        from './services/http.service';
+import { NounsService }       from './services/nouns.service';
+import { AdjectivesService }  from './services/adjectives.service';
+import { TokenService }       from './services/token.service'; 
+import { UtilsService }       from './services/utils.service'; 
 
 @NgModule({
   imports:      [ 
@@ -29,7 +32,8 @@ import { UtilsService }  from './services/utils.service';
         children: 
         [
           { path: '', component: HomeComponent },
-          { path: 'nouns', component: NounsComponent }
+          { path: 'nouns', component: NounsComponent },
+          { path: 'adjectives', component: AdjectivesComponent }
         ]
       },
       { path: 'login',  component: LoginFormComponent }
@@ -40,6 +44,7 @@ import { UtilsService }  from './services/utils.service';
     AUTH_PROVIDERS,
     HttpService,
     NounsService,
+    AdjectivesService,
     TokenService,
     UtilsService
   ],
@@ -48,7 +53,9 @@ import { UtilsService }  from './services/utils.service';
     MainComponent, 
     HomeComponent,
     NounsComponent,
+    AdjectivesComponent,
     AddNounFormComponent,
+    AddAdjectiveFormComponent,
     LoginFormComponent
   ],
   bootstrap:    [ AppComponent ]
