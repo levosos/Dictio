@@ -7,13 +7,14 @@ import { FormsModule }    from '@angular/forms';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 // Components
-import { AppComponent }               from './components/app.component';
-import { MainComponent }              from './components/main.component';
-import { HomeComponent }              from './components/home.component';
+import { AppComponent }   from './components/app.component';
+import { MainComponent }  from './components/main.component';
+import { HomeComponent }  from './components/home.component';
 
 // Pages
 import { NounsPage }        from './pages/nouns.page';
 import { AdjectivesPage }   from './pages/adjectives.page';
+import { VerbsPage }        from './pages/verbs.page';
 
 // Forms
 import { AddNounForm }      from './forms/add-noun.form';
@@ -24,6 +25,7 @@ import { LoginForm }        from './forms/login.form';
 import { HttpService }        from './services/http.service';
 import { NounsService }       from './services/nouns.service';
 import { AdjectivesService }  from './services/adjectives.service';
+import { VerbsService }       from './services/verbs.service';
 import { TokenService }       from './services/token.service'; 
 import { UtilsService }       from './services/utils.service'; 
 
@@ -37,7 +39,8 @@ import { UtilsService }       from './services/utils.service';
         [
           { path: '', component: HomeComponent },
           { path: 'nouns', component: NounsPage },
-          { path: 'adjectives', component: AdjectivesPage }
+          { path: 'adjectives', component: AdjectivesPage },
+          { path: 'verbs', component: VerbsPage }
         ]
       },
       { path: 'login',  component: LoginForm }
@@ -49,6 +52,7 @@ import { UtilsService }       from './services/utils.service';
     HttpService,
     NounsService,
     AdjectivesService,
+    VerbsService,
     TokenService,
     UtilsService
   ],
@@ -61,6 +65,7 @@ import { UtilsService }       from './services/utils.service';
     // Pages
     NounsPage,
     AdjectivesPage,
+    VerbsPage,    
 
     // Forms
     AddNounForm,

@@ -24,7 +24,7 @@
       '@angular/upgrade':                   'npm:@angular/upgrade/bundles/upgrade.umd.js',
       '@angular/material':                  'npm:@angular/material/bundles/material.umd.js',
       'angular2-jwt':                       'npm:angular2-jwt/angular2-jwt.js',
-      'typeorm':                            'npm:typeorm/decorators-shim.js',
+      'typeorm':                            'npm:typeorm/typeorm-model-shim.js',
       'rxjs':                               'npm:rxjs',
       'angular-in-memory-web-api':          'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
     },

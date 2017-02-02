@@ -2,6 +2,9 @@ import { createConnection, Connection } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { Noun } from '../entities/noun.entity';
 import { Adjective } from '../entities/adjective.entity';
+import { Primitive } from '../entities/primitive.entity';
+import { Tense } from '../entities/tense.entity';
+import { Verb } from '../entities/verb.entity';
 
 export class DbConnection {
     private static g__connection: Connection = undefined;
@@ -20,7 +23,10 @@ export class DbConnection {
             entities: [
                 User,
                 Noun,
-                Adjective
+                Adjective,
+                Primitive,
+                Tense,
+                Verb
             ]});
     }
 
