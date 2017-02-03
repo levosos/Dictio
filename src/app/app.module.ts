@@ -9,9 +9,9 @@ import { AUTH_PROVIDERS } from 'angular2-jwt';
 // Components
 import { AppComponent }   from './components/app.component';
 import { MainComponent }  from './components/main.component';
-import { HomeComponent }  from './components/home.component';
 
 // Pages
+import { HomePage }         from './pages/home.page';
 import { NounsPage }        from './pages/nouns.page';
 import { AdjectivesPage }   from './pages/adjectives.page';
 import { VerbsPage }        from './pages/verbs.page';
@@ -37,7 +37,7 @@ import { UtilsService }       from './services/utils.service';
       { path: '', component: MainComponent, 
         children: 
         [
-          { path: '', component: HomeComponent },
+          { path: '', component: HomePage },
           { path: 'nouns', component: NounsPage },
           { path: 'adjectives', component: AdjectivesPage },
           { path: 'verbs', component: VerbsPage }
@@ -60,9 +60,9 @@ import { UtilsService }       from './services/utils.service';
     // Components
     AppComponent, 
     MainComponent, 
-    HomeComponent,
     
     // Pages
+    HomePage,
     NounsPage,
     AdjectivesPage,
     VerbsPage,    
