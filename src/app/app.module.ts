@@ -17,20 +17,23 @@ import { NounsPage }        from './pages/nouns.page';
 import { AdjectivesPage }   from './pages/adjectives.page';
 import { VerbsPage }        from './pages/verbs.page';
 import { VerbPage }         from './pages/verb.page';
+import { ConjunctionsPage } from './pages/conjunctions.page';
 
 // Forms
-import { AddNounForm }      from './forms/add-noun.form';
-import { AddAdjectiveForm } from './forms/add-adjective.form';
-import { AddVerbForm }      from './forms/add-verb.form';
-import { LoginForm }        from './forms/login.form';
+import { AddNounForm }        from './forms/add-noun.form';
+import { AddAdjectiveForm }   from './forms/add-adjective.form';
+import { AddVerbForm }        from './forms/add-verb.form';
+import { AddConjunctionForm } from './forms/add-conjunction.form';
+import { LoginForm }          from './forms/login.form';
 
 // Services
-import { HttpService }        from './services/http.service';
-import { NounsService }       from './services/nouns.service';
-import { AdjectivesService }  from './services/adjectives.service';
-import { VerbsService }       from './services/verbs.service';
-import { TokenService }       from './services/token.service'; 
-import { UtilsService }       from './services/utils.service'; 
+import { HttpService }          from './services/http.service';
+import { NounsService }         from './services/nouns.service';
+import { AdjectivesService }    from './services/adjectives.service';
+import { VerbsService }         from './services/verbs.service';
+import { ConjunctionsService }  from './services/conjunctions.service';
+import { TokenService }         from './services/token.service'; 
+import { UtilsService }         from './services/utils.service'; 
 
 @NgModule({
   imports:      [ 
@@ -44,7 +47,8 @@ import { UtilsService }       from './services/utils.service';
           { path: 'nouns', component: NounsPage },
           { path: 'adjectives', component: AdjectivesPage },
           { path: 'verbs', component: VerbsPage },
-          { path: 'verb/:id', component: VerbPage }
+          { path: 'verb/:id', component: VerbPage },
+          { path: 'conjunctions', component: ConjunctionsPage }
         ]
       },
       { path: 'login',  component: LoginForm }
@@ -57,6 +61,7 @@ import { UtilsService }       from './services/utils.service';
     NounsService,
     AdjectivesService,
     VerbsService,
+    ConjunctionsService,
     TokenService,
     UtilsService
   ],
@@ -72,11 +77,13 @@ import { UtilsService }       from './services/utils.service';
     AdjectivesPage,
     VerbsPage,
     VerbPage,
+    ConjunctionsPage,
 
     // Forms
     AddNounForm,
     AddAdjectiveForm,
     AddVerbForm,
+    AddConjunctionForm,
     LoginForm
   ],
   bootstrap:    [ AppComponent ]

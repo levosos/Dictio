@@ -5,6 +5,7 @@ import { Adjective } from '../entities/adjective.entity';
 import { Primitive } from '../entities/primitive.entity';
 import { Tense } from '../entities/tense.entity';
 import { Verb } from '../entities/verb.entity';
+import { Conjunction } from '../entities/conjunction.entity';
 
 export class DbConnection {
     private static g__connection: Connection = undefined;
@@ -26,7 +27,8 @@ export class DbConnection {
                 Adjective,
                 Primitive,
                 Tense,
-                Verb
+                Verb,
+                Conjunction
             ]});
     }
 

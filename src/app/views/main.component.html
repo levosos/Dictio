@@ -8,6 +8,7 @@
       <md-list-item routerLink="/nouns">Nouns</md-list-item>
       <md-list-item routerLink="/adjectives">Adjectives</md-list-item>
       <md-list-item routerLink="/verbs">Verbs</md-list-item>
+      <md-list-item routerLink="/conjunctions">Conjunction Words</md-list-item>
       <h3 md-subheader>General</h3>
       <md-list-item *ngIf="!tokenService.isLoggedIn()" routerLink="/login">Log in</md-list-item>
       <md-list-item *ngIf="tokenService.isLoggedIn()" (click)="tokenService.logout()">Log out</md-list-item>

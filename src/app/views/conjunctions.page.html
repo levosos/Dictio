@@ -1,0 +1,21 @@
+<add-conjunction-form *ngIf="tokenService.isAdmin()"></add-conjunction-form>
+<md-card>
+    <h2>Conjunction Words</h2>
+    <md-progress-bar *ngIf="!conjunctions" mode="indeterminate"></md-progress-bar>
+    <md-input-container *ngIf="conjunctions">
+      <input 
+        md-input
+        type="text"
+        [(ngModel)]="filter"
+        (ngModelChange)="filterChanged()"
+        placeholder="Search">
+    </md-input-container>
+    <md-list>
+        <md-list-item *ngFor="let conjunction of conjunctions">
+            <p md-line><b>{{conjunction.spanish}}</b></p>
+            <p md-line>{{conjunction.english}}</p>
+        </md-list-item>
+    </md-list>
+    <br/>
+    <p *ngIf="conjunctions">{{conjunctions.length}} words</p>
+</md-card>
