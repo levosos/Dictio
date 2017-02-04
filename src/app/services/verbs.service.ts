@@ -16,4 +16,8 @@ export class VerbsService {
     public getVerbAsync(id: number): Promise<Verb> {
         return this.http.getAsync(VerbsService.RestPath + '/' + id);
     }
+
+    public addVerbAsync(verb: Verb): Promise<void> {
+        return this.http.authPostAsync(VerbsService.RestPath, verb);
+    }
 }

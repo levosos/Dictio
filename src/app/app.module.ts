@@ -21,6 +21,7 @@ import { VerbPage }         from './pages/verb.page';
 // Forms
 import { AddNounForm }      from './forms/add-noun.form';
 import { AddAdjectiveForm } from './forms/add-adjective.form';
+import { AddVerbForm }      from './forms/add-verb.form';
 import { LoginForm }        from './forms/login.form';
 
 // Services
@@ -75,6 +76,7 @@ import { UtilsService }       from './services/utils.service';
     // Forms
     AddNounForm,
     AddAdjectiveForm,
+    AddVerbForm,
     LoginForm
   ],
   bootstrap:    [ AppComponent ]

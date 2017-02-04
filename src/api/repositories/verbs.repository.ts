@@ -1,6 +1,13 @@
 import { Verb } from '../entities/verb.entity';
 import { DbConnection } from '../utils/db'
 
+export async function addVerb(verb: Verb): Promise<void> {
+    const connection = await DbConnection.getConnection();
+    const repository = connection.getRepository(Verb);
+
+    await repository.persist(verb);
+}
+
 export async function getAllVerbsOverview(): Promise<Verb[]> {
     const connection = await DbConnection.getConnection();
     const repository = connection.getRepository(Verb);
