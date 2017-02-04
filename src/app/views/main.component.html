@@ -1,23 +1,44 @@
-<md-toolbar color="primary">
-  <span routerLink="">Dictio</span>
-  <span style="flex: 1 1 auto"></span> <!-- this is to fill all the gap between these two spans -->
-  <span *ngIf="tokenService.isLoggedIn()">
-    <button md-icon-button [mdMenuTriggerFor]="menu">
-      <md-icon>more_vert</md-icon>
+<md-sidenav-container>
+
+  <md-sidenav #sidenav mode="side">
+    <md-list>
+      <h3 md-subheader>View</h3>
+      <md-list-item routerLink="/nouns">Nouns</md-list-item>
+      <md-list-item routerLink="/adjectives">Adjectives</md-list-item>
+      <md-list-item routerLink="/verbs">Verbs</md-list-item>
+      <h3 md-subheader>General</h3>
+      <md-list-item *ngIf="!tokenService.isLoggedIn()" routerLink="/login">Log in</md-list-item>
+      <md-list-item *ngIf="tokenService.isLoggedIn()" (click)="tokenService.logout()">Log out</md-list-item>
+    </md-list>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="sidenav.toggle()">
+      <md-icon>menu</md-icon>
     </button>
-    <md-menu #menu="mdMenu">
-      <button md-menu-item (click)="tokenService.logout()">
-        <md-icon>close</md-icon>
-        <span>Log out</span>
+    <span routerLink="">Dictio</span>
+    <span style="flex: 1 1 auto"></span> <!-- this is to fill all the gap between these two spans -->
+    <span *ngIf="tokenService.isLoggedIn()">
+      <button md-icon-button [mdMenuTriggerFor]="menu">
+        <md-icon>more_vert</md-icon>
       </button>
-    </md-menu>
-    {{utils.capitalizeString(tokenService.user.username)}}
-  </span>
-</md-toolbar>
-<router-outlet></router-outlet>
-<md-card>
-  <button md-button routerLink="">index</button>
-  <br/>
-  <button *ngIf="!tokenService.isLoggedIn()" md-button routerLink="/login">login</button>
-  <button *ngIf="tokenService.isLoggedIn()" md-button (click)="tokenService.logout()">logout</button>
-</md-card>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item (click)="tokenService.logout()">
+          <md-icon>close</md-icon>
+          <span>Log out</span>
+        </button>
+      </md-menu>
+      {{utils.capitalizeString(tokenService.user.username)}}
+    </span>
+  </md-toolbar>
+  
+  <router-outlet></router-outlet>
+  
+  <md-card>
+    <button md-button routerLink="">index</button>
+    <br/>
+    <button *ngIf="!tokenService.isLoggedIn()" md-button routerLink="/login">login</button>
+    <button *ngIf="tokenService.isLoggedIn()" md-button (click)="tokenService.logout()">logout</button>
+  </md-card>
+
+</md-sidenav-container>
