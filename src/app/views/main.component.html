@@ -1,7 +1,9 @@
 <md-sidenav-container>
 
   <md-sidenav #sidenav mode="side">
-    <md-list>
+    <md-list (click)="sidenav.close()">
+      <h3 md-subheader>Global</h3>
+      <md-list-item routerLink="/">Home</md-list-item>
       <h3 md-subheader>View</h3>
       <md-list-item routerLink="/nouns">Nouns</md-list-item>
       <md-list-item routerLink="/adjectives">Adjectives</md-list-item>
