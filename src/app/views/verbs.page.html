@@ -10,7 +10,7 @@
         placeholder="Search">
     </md-input-container>
     <md-list>
-        <md-list-item *ngFor="let verb of verbs">
+        <md-list-item *ngFor="let verb of verbs" (click)="router.navigateByUrl('verb/' + verb.id)">
             <p md-line><b>{{verb.infinitive}}</b></p>
             <p md-line>{{verb.english}}</p>
         </md-list-item>

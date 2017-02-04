@@ -1,0 +1,18 @@
+<md-card>
+    <md-progress-bar *ngIf="!verb" mode="indeterminate"></md-progress-bar>
+    <div *ngIf="verb">
+        <h2>{{verb.infinitive}}</h2>
+        <h4>to {{verb.english}}</h4>
+        <dictio-primitive caption="Participle:" [primitive]="verb.participle"></dictio-primitive>
+        <dictio-primitive caption="Gerund:" [primitive]="verb.gerund"></dictio-primitive>
+        <md-card *ngFor="let tense of verb.tenses">
+            <h3>{{tense.name}}</h3>
+            <dictio-primitive caption="yo" [primitive]="tense.yo"></dictio-primitive>
+            <dictio-primitive caption="tú" [primitive]="tense.tu"></dictio-primitive>
+            <dictio-primitive caption="él/ella/usted" [primitive]="tense.el"></dictio-primitive>
+            <dictio-primitive caption="nosotros" [primitive]="tense.nosotros"></dictio-primitive>
+            <dictio-primitive caption="vosotros" [primitive]="tense.vosotros"></dictio-primitive>
+            <dictio-primitive caption="ellos/ellas/ustedes" [primitive]="tense.ellos"></dictio-primitive>
+        </md-card>
+    </div>
+</md-card>

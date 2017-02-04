@@ -12,4 +12,8 @@ export class VerbsService {
     public getAllVerbsAsync(): Promise<Verb[]> {
         return this.http.getAsync(VerbsService.RestPath);
     }
+    
+    public getVerbAsync(id: number): Promise<Verb> {
+        return this.http.getAsync(VerbsService.RestPath + '/' + id);
+    }
 }

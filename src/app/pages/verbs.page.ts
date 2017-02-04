@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { VerbsService } from '../services/verbs.service';
 import { TokenService } from '../services/token.service';
 import { UtilsService } from '../services/utils.service';
@@ -14,7 +15,8 @@ export class VerbsPage implements OnInit {
 
   constructor(private verbsService: VerbsService,
               private tokenService: TokenService,
-              private utils: UtilsService) {
+              private utils: UtilsService,
+              private router: Router) {
   }
   
   public async ngOnInit(): Promise<void> {

@@ -7,14 +7,16 @@ import { FormsModule }    from '@angular/forms';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 // Components
-import { AppComponent }   from './components/app.component';
-import { MainComponent }  from './components/main.component';
+import { AppComponent }       from './components/app.component';
+import { MainComponent }      from './components/main.component';
+import { PrimitiveComponent } from './pages/verb.page';
 
 // Pages
 import { HomePage }         from './pages/home.page';
 import { NounsPage }        from './pages/nouns.page';
 import { AdjectivesPage }   from './pages/adjectives.page';
 import { VerbsPage }        from './pages/verbs.page';
+import { VerbPage }         from './pages/verb.page';
 
 // Forms
 import { AddNounForm }      from './forms/add-noun.form';
@@ -40,7 +42,8 @@ import { UtilsService }       from './services/utils.service';
           { path: '', component: HomePage },
           { path: 'nouns', component: NounsPage },
           { path: 'adjectives', component: AdjectivesPage },
-          { path: 'verbs', component: VerbsPage }
+          { path: 'verbs', component: VerbsPage },
+          { path: 'verb/:id', component: VerbPage }
         ]
       },
       { path: 'login',  component: LoginForm }
@@ -60,12 +63,14 @@ import { UtilsService }       from './services/utils.service';
     // Components
     AppComponent, 
     MainComponent, 
-    
+    PrimitiveComponent,
+
     // Pages
     HomePage,
     NounsPage,
     AdjectivesPage,
-    VerbsPage,    
+    VerbsPage,
+    VerbPage,
 
     // Forms
     AddNounForm,

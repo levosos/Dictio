@@ -1,22 +1,29 @@
 import { Verb } from '../entities/verb.entity';
 import { DbConnection } from '../utils/db'
 
-export enum Level {
-    Full,
-    Overview
-}
-
-export async function getAllVerbs(level: Level): Promise<Verb[]> {
+export async function getAllVerbsOverview(): Promise<Verb[]> {
     const connection = await DbConnection.getConnection();
     const repository = connection.getRepository(Verb);
 
-    switch (level) {
-        case Level.Overview:
-            return await repository.find();   
-        case Level.Full:
-            return await repository.find({
-                alias: 'verb',
-                innerJoinAndSelect: { 'tenses': 'verb.tenses' }
-            });
+    return await repository.find();   
+}
+
+export async function getVerb(id: number): Promise<Verb> {
+    const connection = await DbConnection.getConnection();
+    const repository = connection.getRepository(Verb);
+
+    const verb = await repository.findOne(
+        {
+            id: id
+        },
+        {
+            alias: 'verb',
+            innerJoinAndSelect: { 'tenses': 'verb.tenses' }
+        });
+
+    if (verb === undefined) {
+        throw new Error();
     }
+
+    return verb;
 }
