@@ -19,8 +19,8 @@
     <button md-icon-button (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>
     </button>
-    <span routerLink="">Dictio</span>
-    <span style="flex: 1 1 auto"></span> <!-- this is to fill all the gap between these two spans -->
+    <span id="dictio-title" routerLink="">Dictio</span>
+    <span class="dictio-spacer"></span>
     <span *ngIf="tokenService.isLoggedIn()">
       <button md-icon-button [mdMenuTriggerFor]="menu">
         <md-icon>more_vert</md-icon>
@@ -37,11 +37,10 @@
   
   <router-outlet></router-outlet>
   
-  <md-card>
-    <button md-button routerLink="">index</button>
+  <div id="dictio-footer">
+    <p routerLink="">index</p>
     <br/>
-    <button *ngIf="!tokenService.isLoggedIn()" md-button routerLink="/login">login</button>
-    <button *ngIf="tokenService.isLoggedIn()" md-button (click)="tokenService.logout()">logout</button>
-  </md-card>
-
+    <p *ngIf="!tokenService.isLoggedIn()" routerLink="/login">login</p>
+    <p *ngIf="tokenService.isLoggedIn()" (click)="tokenService.logout()">logout</p>
+  </div>
 </md-sidenav-container>
