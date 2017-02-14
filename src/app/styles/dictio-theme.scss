@@ -1,5 +1,7 @@
 @import '../../../node_modules/@angular/material/core/theming/all-theme';
 
+@include md-core();
+
 $dictio-primary: md-palette($md-light-blue);
 $dictio-accent:  md-palette($md-indigo);
 $dictio-warn:    md-palette($md-red);
@@ -8,15 +10,16 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
 
 @include angular-material-theme($dictio-theme);
 
-@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto|Material+Icons');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto');
 
 * {
     margin: 0px;
     font-family: 'Roboto', sans-serif;
 }
 
-md-toolbar-row {
-  justify-content: space-between;
+.dictio-spacer {
+    flex: 1 1 auto;
 }
 
 #dictio-loading {
