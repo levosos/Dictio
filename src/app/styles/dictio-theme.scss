@@ -8,16 +8,16 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
 
 @include angular-material-theme($dictio-theme);
 
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto');
+
 * {
     margin: 0px;
     font-family: 'Roboto', sans-serif;
 }
 
-.dictio-spacer {
-    flex: 1 1 auto;
+md-toolbar-row {
+  justify-content: space-between;
 }
-
-@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto');
 
 #dictio-footer {
     background-color: md-color($dictio-primary, A100);
