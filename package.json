@@ -45,7 +45,7 @@
     "gulp-tsc": "^1.2.5",
     "hammerjs": "^2.0.8",
     "jsonwebtoken": "^7.2.1",
-    "materialize-css": "^0.98.0",
+    "materialize-css": "^0.97.8",
     "pg": "^6.1.2",
     "reflect-metadata": "^0.1.8",
     "routing-controllers": "^0.6.6",
