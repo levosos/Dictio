@@ -11,19 +11,14 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
 @include angular-material-theme($dictio-theme);
 
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
 
 * {
     margin: 0px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.dictio-spacer {
-    flex: 1 1 auto;
 }
 
 #dictio-loading {
-    background-color: #03A9F4; 
+    background-color: #29b6f6; // light-blue lighten-1
     width: 100%; 
     height: 100%;
     padding-top: 50%; 
@@ -31,19 +26,11 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
     color: white;
 }
 
-#dictio-footer {
-    background-color: md-color($dictio-primary, A100);
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
-#dictio-title {
-    font-family: 'Pacifico', cursive;
-    font-size: 40px;
-}
-
 .dictio-form {
     background-color: md-color($dictio-primary, A700);
     color: white;
+}
+
+.dictio-tm {
+    font-family: 'Pacifico', cursive;   
 }

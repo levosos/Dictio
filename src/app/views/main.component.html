@@ -1,46 +1,50 @@
-<md-sidenav-container>
-
-  <md-sidenav #sidenav mode="side">
-    <md-list (click)="sidenav.close()">
-      <h3 md-subheader>Global</h3>
-      <md-list-item routerLink="/">Home</md-list-item>
-      <h3 md-subheader>View</h3>
-      <md-list-item routerLink="/nouns">Nouns</md-list-item>
-      <md-list-item routerLink="/adjectives">Adjectives</md-list-item>
-      <md-list-item routerLink="/verbs">Verbs</md-list-item>
-      <md-list-item routerLink="/conjunctions">Conjunction Words</md-list-item>
-      <h3 md-subheader>General</h3>
-      <md-list-item *ngIf="!tokenService.isLoggedIn()" routerLink="/login">Log in</md-list-item>
-      <md-list-item *ngIf="tokenService.isLoggedIn()" (click)="tokenService.logout()">Log out</md-list-item>
-    </md-list>
-  </md-sidenav>
-
-  <md-toolbar color="primary">
-    <button md-icon-button (click)="sidenav.toggle()">
-      <md-icon>menu</md-icon>
-    </button>
-    <span id="dictio-title" routerLink="">Dictio</span>
-    <span class="dictio-spacer"></span>
-    <span *ngIf="tokenService.isLoggedIn()">
-      <button md-icon-button [mdMenuTriggerFor]="menu">
-        <md-icon>more_vert</md-icon>
-      </button>
-      <md-menu #menu="mdMenu">
-        <button md-menu-item (click)="tokenService.logout()">
-          <md-icon>close</md-icon>
-          <span>Log out</span>
-        </button>
-      </md-menu>
-      {{utils.capitalizeString(tokenService.user.username)}}
-    </span>
-  </md-toolbar>
-
-  <router-outlet></router-outlet>
+<div materialize>
   
-  <div id="dictio-footer">
-    <p routerLink="">index</p>
-    <br/>
-    <p *ngIf="!tokenService.isLoggedIn()" routerLink="/login">login</p>
-    <p *ngIf="tokenService.isLoggedIn()" (click)="tokenService.logout()">logout</p>
+  <ul id="menu" class="dropdown-content">
+    <li><a href="#/logout"><i class="material-icons waves-effect waves-light">close</i>Log out</a></li>
+  </ul>
+
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a class="brand-logo center dictio-tm" href="#">Dictio</a>
+        <i *ngIf="tokenService.isLoggedIn()" 
+            materialize="dropdown" 
+            class="material-icons dropdown-button waves-effect waves-light right" 
+            data-activates="menu">
+            more_vert
+        </i>
+      </div>
+    </nav>
   </div>
-</md-sidenav-container>
+  
+  <router-outlet></router-outlet>
+
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div *ngFor="let section of sections" class="col">
+          <h5 class="white-text">{{section.name}}</h5>
+          <ul>
+            <li *ngFor="let item of section.items">
+              <a class="grey-text text-lighten-3" [href]="item.url">
+                {{item.name}}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <span class="dictio-tm">Dictio</span> © 2017
+        <a 
+          class="material-icons grey-text text-lighten-3 right" 
+          href="https://github.com/levosos/Dictio">
+          code
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</div>
