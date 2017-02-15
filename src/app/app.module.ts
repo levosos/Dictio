@@ -1,10 +1,11 @@
 // Global
-import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { MaterialModule } from '@angular/material';
-import { RouterModule }   from '@angular/router';
-import { FormsModule }    from '@angular/forms';
-import { AUTH_PROVIDERS } from 'angular2-jwt';
+import { NgModule }           from '@angular/core';
+import { BrowserModule }      from '@angular/platform-browser';
+import { MaterialModule }     from '@angular/material';
+import { RouterModule }       from '@angular/router';
+import { FormsModule }        from '@angular/forms';
+import { AUTH_PROVIDERS }     from 'angular2-jwt';
+import { MaterializeModule }  from "angular2-materialize";
 
 // Components
 import { AppComponent }       from './components/app.component';
@@ -39,6 +40,7 @@ import { UtilsService }         from './services/utils.service';
   imports:      [ 
     BrowserModule, 
     MaterialModule.forRoot(),
+    MaterializeModule,
     RouterModule.forRoot([
       { path: '', component: MainComponent, 
         children: 

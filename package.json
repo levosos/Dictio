@@ -32,6 +32,7 @@
     "@types/node": "^6.0.45",
     "angular-in-memory-web-api": "~0.1.13",
     "angular2-jwt": "^0.1.28",
+    "angular2-materialize": "^6.7.1",
     "body-parser": "^1.15.2",
     "core-js": "^2.4.1",
     "del": "^2.2.2",
