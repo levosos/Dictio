@@ -3,6 +3,7 @@ var del = require('del');
 var typescript = require('gulp-tsc');
 var symlink = require('gulp-symlink');
 var sass = require('gulp-sass');
+var replace = require('gulp-replace');
 
 gulp.task('clean', function () {
     return del(['bin/**']);
@@ -53,8 +54,23 @@ gulp.task('symlink::api', function(){
     .pipe(symlink('bin/app/app/api', {force: true})) 
 });
 
-gulp.task('styles', function () {
-  return gulp.src(['src/app/styles/dictio-theme.scss'])
+gulp.task('materialize::replace', function() {
+  return gulp.src(['node_modules/materialize-css/sass/components/_variables.scss'])
+    .pipe(replace('../fonts/roboto/', 'fonts/roboto/'))
+    .pipe(replace('materialize-red', 'light-blue'))
+    .pipe(replace('teal', 'amber'))
+    .pipe(gulp.dest('node_modules/materialize-css/sass/components'));
+});
+
+gulp.task('materialize::fonts', function() {
+  return gulp.src('node_modules/materialize-css/fonts')
+    .pipe(symlink('bin/app/app/styles/fonts', {force: true})) 
+});
+
+gulp.task('materialize', ['materialize::replace', 'materialize::fonts']);
+
+gulp.task('styles', ['materialize'], function () {
+  return gulp.src(['src/app/styles/dictio.scss', 'node_modules/materialize-css/sass/materialize.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('bin/app/app/styles'));
 });
