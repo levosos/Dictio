@@ -10,6 +10,7 @@ import { MaterializeModule }  from "angular2-materialize";
 // Components
 import { AppComponent }       from './components/app.component';
 import { MainComponent }      from './components/main.component';
+import { LogoutComponent }    from './components/logout.component';
 import { PrimitiveComponent } from './pages/verb.page';
 
 // Pages
@@ -53,7 +54,8 @@ import { UtilsService }         from './services/utils.service';
           { path: 'conjunctions', component: ConjunctionsPage }
         ]
       },
-      { path: 'login',  component: LoginForm }
+      { path: 'login',  component: LoginForm },
+      { path: 'logout', component: LogoutComponent }
     ], { useHash: true}),
     FormsModule
   ],
@@ -71,6 +73,7 @@ import { UtilsService }         from './services/utils.service';
     // Components
     AppComponent, 
     MainComponent, 
+    LogoutComponent,
     PrimitiveComponent,
 
     // Pages

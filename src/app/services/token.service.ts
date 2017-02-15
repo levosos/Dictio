@@ -40,17 +40,21 @@ export class TokenService {
     }
     
     public async loginAsync(credentials: Credentials): Promise<void> {
-        let token: string = await this.http.postAsync(TokenService.RestPath, credentials);
-        localStorage.setItem(TokenService.LocalStorageKey, token);
+        if (!this.isLoggedIn()) {
+            let token: string = await this.http.postAsync(TokenService.RestPath, credentials);
+            localStorage.setItem(TokenService.LocalStorageKey, token);
+            this.utils.toast('Logged in as \'' + this.utils.capitalizeString(this.user.username) + '\'');
+        }
         
-        this.utils.toast('Logged in as \'' + this.utils.capitalizeString(this.user.username) + '\'');
         this.redirect();
     }
 
     public logout(): void {
-        localStorage.removeItem(TokenService.LocalStorageKey);
+        if (this.isLoggedIn()) {
+            localStorage.removeItem(TokenService.LocalStorageKey);
+            this.utils.toast('Logged out');
+        }
         
-        this.utils.toast('Logged out');
         this.redirect();
     }
 
