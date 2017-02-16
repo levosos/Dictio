@@ -1,0 +1,29 @@
+doctype html
+.row
+    .col.s12
+        .card.primary.white-text
+            .card-content
+                .card-title
+                    h3 Login
+                .row
+                    .input-field.col.s6
+                        input(
+                            type='text' 
+                            '[(ngModel)]'='username'
+                            '#usernameInput'='ngModel'
+                            placeholder='User' 
+                            required
+                            )
+                    .input-field.col.s6
+                        input(
+                            type='password' 
+                            '[(ngModel)]'='password'
+                            '#passwordInput'='ngModel'
+                            placeholder='Password' 
+                            required
+                            )
+            .card-action.light-blue.darken-2
+                a.btn.waves-effect.waves-light(
+                    '(click)'='loginAsync()' 
+                    '[ngClass]'='{ \'red\': error, \'disabled\': !usernameInput.valid || !passwordInput.valid }'
+                    ) Login

@@ -17,8 +17,15 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
     margin: 0px;
 }
 
+@import '../../../node_modules/materialize-css/sass/materialize.scss';
+
+.primary {
+    @extend .light-blue; 
+    @extend .lighten-1;
+}
+
 #dictio-loading {
-    background-color: #29b6f6; // light-blue lighten-1
+    @extend .primary;
     width: 100%; 
     height: 100%;
     padding-top: 50%; 

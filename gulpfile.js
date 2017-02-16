@@ -4,7 +4,8 @@ var typescript = require('gulp-tsc');
 var symlink = require('gulp-symlink');
 var sass = require('gulp-sass');
 var replace = require('gulp-replace');
-
+var pug = require('gulp-pug');
+ 
 gulp.task('clean', function () {
     return del(['bin/**']);
 });
@@ -40,7 +41,7 @@ gulp.task('static::app::root', function(){
 });
 
 gulp.task('static::app::views', function(){
-  return gulp.src(['src/app/views/**/*'])
+  return gulp.src(['src/app/views/**/*.html'])
     .pipe(gulp.dest('bin/app/app/views'))
 });
 
@@ -75,7 +76,13 @@ gulp.task('styles', ['materialize'], function () {
     .pipe(gulp.dest('bin/app/app/styles'));
 });
 
-gulp.task('static', ['static::app::root', 'styles', 'static::app::views', 'symlink::node_modules', 'symlink::api']);
+gulp.task('pug', function () {
+  return gulp.src('src/app/views/**/*.pug')
+  .pipe(pug({ pretty: true }))
+  .pipe(gulp.dest('bin/app/app/views'));
+});
+
+gulp.task('static', ['pug', 'static::app::root', 'styles', 'static::app::views', 'symlink::node_modules', 'symlink::api']);
 
 gulp.task('buildall', ['build'], function() {
   gulp.start('static')

@@ -8,7 +8,7 @@ import { Credentials } from '../../api/models/credentials.model';
 export class LoginForm {
     private username: string = '';
     private password: string = '';
-    private hasError: boolean = false;
+    private error: any;
 
     constructor(private tokenService: TokenService) {
     }
@@ -22,7 +22,7 @@ export class LoginForm {
         try {
             await this.tokenService.loginAsync(credentials);
         } catch (e) {
-            this.hasError = true;
+            this.error = e;
         }
     }    
 }
