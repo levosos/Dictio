@@ -24,6 +24,17 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
     @extend .lighten-1;
 }
 
+.dictio-card {
+    @extend .card;
+    @extend .primary;
+    @extend .white-text;
+
+    .card-action {
+        @extend .light-blue;
+        @extend .darken-2;
+    }
+}
+
 #dictio-loading {
     @extend .primary;
     width: 100%; 

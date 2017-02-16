@@ -1,7 +1,7 @@
 doctype html
 .row
     .col.s12
-        .card.primary.white-text
+        .dictio-card
             .card-content
                 .card-title
                     h3 Login
@@ -22,7 +22,7 @@ doctype html
                             placeholder='Password' 
                             required
                             )
-            .card-action.light-blue.darken-2
+            .card-action
                 a.btn.waves-effect.waves-light(
                     '(click)'='loginAsync()' 
                     '[ngClass]'='{ \'red\': error, \'disabled\': !usernameInput.valid || !passwordInput.valid }'
