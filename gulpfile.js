@@ -59,7 +59,7 @@ gulp.task('materialize::replace', function() {
   return gulp.src(['node_modules/materialize-css/sass/components/_variables.scss'])
     .pipe(replace('../fonts/roboto/', 'fonts/roboto/'))
     .pipe(replace('materialize-red', 'light-blue'))
-    .pipe(replace('teal', 'amber'))
+    .pipe(replace('teal', 'light-green'))
     .pipe(gulp.dest('node_modules/materialize-css/sass/components'));
 });
 

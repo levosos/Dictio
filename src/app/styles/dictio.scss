@@ -26,12 +26,12 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
 
 .dictio-card {
     @extend .card;
-    @extend .primary;
-    @extend .white-text;
-
+    @extend .light-blue;
+    @extend .lighten-5;
+    
     .card-action {
         @extend .light-blue;
-        @extend .darken-2;
+        @extend .lighten-3;
     }
 }
 
