@@ -28,6 +28,11 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
     @extend .card;
     @extend .light-blue;
     @extend .lighten-5;
+
+    .card-title {
+        @extend .light-blue-text;
+        @extend .text-darken-4;
+    }
     
     .card-action {
         @extend .light-blue;

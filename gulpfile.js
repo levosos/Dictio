@@ -58,8 +58,8 @@ gulp.task('symlink::api', function(){
 gulp.task('materialize::replace', function() {
   return gulp.src(['node_modules/materialize-css/sass/components/_variables.scss'])
     .pipe(replace('../fonts/roboto/', 'fonts/roboto/'))
-    .pipe(replace('materialize-red', 'light-blue'))
-    .pipe(replace('teal', 'light-green'))
+    .pipe(replace(/primary-color: color\(.*?\)/, 'primary-color: color("light-blue", "lighten-1")'))
+    .pipe(replace(/secondary-color: color\(.*?\)/, 'secondary-color: color("light-green", "base")'))
     .pipe(gulp.dest('node_modules/materialize-css/sass/components'));
 });
 
