@@ -19,7 +19,7 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
 
 @import '../../../node_modules/materialize-css/sass/materialize.scss';
 
-.primary {
+.dictio-primary {
     @extend .light-blue; 
     @extend .lighten-1;
 }
@@ -41,7 +41,7 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
 }
 
 #dictio-loading {
-    @extend .primary;
+    @extend .dictio-primary;
     width: 100%; 
     height: 100%;
     padding-top: 50%; 
@@ -56,4 +56,13 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
 
 .dictio-tm {
     font-family: 'Pacifico', cursive;   
+}
+
+.dictio-action-btn {
+    @extend .btn-floating;
+    @extend .btn-large;
+
+    @extend .light-blue;
+    @extend .lighten-3;
+    @extend .z-depth-3;
 }

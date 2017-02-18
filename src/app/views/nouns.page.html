@@ -1,17 +1,23 @@
 <dictio-filter-toolbar (filter)="filter($event)"></dictio-filter-toolbar>
-<add-noun-form *ngIf="tokenService.isAdmin()"></add-noun-form>
 <md-card>
     <h2>Nouns</h2>
     
     <md-progress-bar *ngIf="!nouns" mode="indeterminate"></md-progress-bar>
 
-    <ul *ngIf="nouns" class="collection">
-        <li *ngFor="let noun of nouns" class="collection-item">
-            <h5><span class="grey-text text-lighten-1">{{noun.gender == Gender.Masculine ? 'el' : 'la'}}</span> {{noun.spanish}}</h5>
-            <p class="grey-text text-darken-3">{{noun.english}}</p>
-            <p *ngIf="!noun.countable" class="grey-text">uncountable</p>
-        </li>
-    </ul>
-    <br/>
-    <p *ngIf="nouns">{{nouns.length}} nouns</p>
+    <div *ngIf="nouns">
+        <ul class="collection">
+            <li *ngFor="let noun of nouns" class="collection-item">
+                <h5><span class="grey-text text-lighten-1">{{noun.gender == Gender.Masculine ? 'el' : 'la'}}</span> {{noun.spanish}}</h5>
+                <p class="grey-text text-darken-3">{{noun.english}}</p>
+                <p *ngIf="!noun.countable" class="grey-text">uncountable</p>
+            </li>
+        </ul>
+        <br/>
+        <p>{{nouns.length}} nouns</p>
+    </div>
 </md-card>
+
+<span *ngIf="tokenService.isAdmin()">
+    <a class="dictio-action-btn waves-effect waves-light" style="position: fixed; bottom: 20px; right: 20px;" href="#form"><i class="material-icons">add</i></a>
+    <add-noun-form></add-noun-form>
+</span>
