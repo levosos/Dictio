@@ -8,10 +8,11 @@ import { AUTH_PROVIDERS }     from 'angular2-jwt';
 import { MaterializeModule }  from "angular2-materialize";
 
 // Components
-import { AppComponent }       from './components/app.component';
-import { MainComponent }      from './components/main.component';
-import { LogoutComponent }    from './components/logout.component';
-import { PrimitiveComponent } from './pages/verb.page';
+import { AppComponent }           from './components/app.component';
+import { MainComponent }          from './components/main.component';
+import { LogoutComponent }        from './components/logout.component';
+import { PrimitiveComponent }     from './pages/verb.page';
+import { FilterToolbarComponent } from './components/filter-toolbar.component';
 
 // Pages
 import { HomePage }         from './pages/home.page';
@@ -75,6 +76,7 @@ import { UtilsService }         from './services/utils.service';
     MainComponent, 
     LogoutComponent,
     PrimitiveComponent,
+    FilterToolbarComponent,
 
     // Pages
     HomePage,

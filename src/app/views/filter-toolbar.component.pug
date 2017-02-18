@@ -1,0 +1,14 @@
+doctype html
+.navbar-fixed
+    nav
+        .nav-wrapper
+            .input-field
+                input#pattern(
+                    type='search'
+                    '#pattern'
+                    '(input)'='filter($event.target.value)'
+                    placeholder='Filter'
+                )
+                label.label-icon(for='pattern')
+                    i.material-icons search
+                i.material-icons('(click)'='pattern.value=\'\'; filter(\'\');') close

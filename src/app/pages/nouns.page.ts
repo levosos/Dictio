@@ -23,6 +23,10 @@ export class NounsPage implements OnInit {
   }
 
   private filter(pattern: string): void {
+    if (this.nouns === undefined || this.cache === undefined) {
+      return;
+    }
+
     this.nouns = this.cache.filter(noun => {
       return this.utils.filter(noun.english, pattern) ||
              this.utils.filter(noun.spanish, pattern);
