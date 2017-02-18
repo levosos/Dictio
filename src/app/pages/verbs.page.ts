@@ -25,8 +25,8 @@ export class VerbsPage implements OnInit {
 
   private filterChanged(): void {
     this.verbs = this.cache.filter(verb => {
-      return this.utils.stringContainsIgnoreCase(verb.infinitive, this.filter) ||
-             this.utils.stringContainsIgnoreCase(verb.english, this.filter);
+      return this.utils.filter(verb.infinitive, this.filter) ||
+             this.utils.filter(verb.english, this.filter);
     });
   }
 }

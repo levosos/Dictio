@@ -23,8 +23,8 @@ export class AdjectivesPage implements OnInit {
 
   private filterChanged(): void {
     this.adjectives = this.cache.filter(adjective => {
-      return this.utils.stringContainsIgnoreCase(adjective.english, this.filter) ||
-             this.utils.stringContainsIgnoreCase(adjective.spanish, this.filter);
+      return this.utils.filter(adjective.english, this.filter) ||
+             this.utils.filter(adjective.spanish, this.filter);
     });
   }
 }

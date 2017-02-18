@@ -1,15 +1,19 @@
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+        <div class="input-field">
+            <input id="pattern" #pattern type="search" (keyup)="filter(pattern.value)"/>
+            <label class="label-icon" for="pattern"><i class="material-icons">search</i></label>
+            <i class="material-icons" (click)="pattern.value=''; filter('');">close</i>
+        </div>
+        </div>
+    </nav>
+</div>
+
 <add-noun-form *ngIf="tokenService.isAdmin()"></add-noun-form>
 <md-card>
     <h2>Nouns</h2>
     <md-progress-bar *ngIf="!nouns" mode="indeterminate"></md-progress-bar>
-    <md-input-container *ngIf="nouns">
-      <input 
-        md-input
-        type="text"
-        [(ngModel)]="filter"
-        (ngModelChange)="filterChanged()"
-        placeholder="Search">
-    </md-input-container>
     <md-list>
         <md-list-item *ngFor="let noun of nouns">
             <p md-line><b>{{noun.spanish}}</b></p>

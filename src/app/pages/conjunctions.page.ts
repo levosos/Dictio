@@ -23,8 +23,8 @@ export class ConjunctionsPage implements OnInit {
 
   private filterChanged(): void {
     this.conjunctions = this.cache.filter(conjunction => {
-      return this.utils.stringContainsIgnoreCase(conjunction.english, this.filter) ||
-             this.utils.stringContainsIgnoreCase(conjunction.spanish, this.filter);
+      return this.utils.filter(conjunction.english, this.filter) ||
+             this.utils.filter(conjunction.spanish, this.filter);
     });
   }
 }

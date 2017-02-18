@@ -43,7 +43,7 @@ export class TokenService {
         if (!this.isLoggedIn()) {
             let token: string = await this.http.postAsync(TokenService.RestPath, credentials);
             localStorage.setItem(TokenService.LocalStorageKey, token);
-            this.utils.toast('Logged in as \'' + this.utils.capitalizeString(this.user.username) + '\'');
+            this.utils.toast('Logged in as \'' + this.utils.capitalize(this.user.username) + '\'');
         }
         
         this.redirect();

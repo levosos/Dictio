@@ -10,11 +10,11 @@ export class UtilsService {
         this.snackBar.open(msg, '', { duration: 4500 });
     }
 
-    public capitalizeString(str: string): string {
+    public capitalize(str: string): string {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
-    public stringContainsIgnoreCase(str: string, substr: string): boolean {
+    public filter(str: string, substr: string): boolean {
         str = str.toLowerCase().trim();
         substr = substr.toLowerCase().trim();
 

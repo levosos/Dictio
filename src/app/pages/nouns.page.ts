@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NounsService } from '../services/nouns.service';
 import { TokenService } from '../services/token.service';
 import { UtilsService } from '../services/utils.service';
@@ -12,8 +12,7 @@ export class NounsPage implements OnInit {
 
   private cache: Noun[];
   private nouns: Noun[];
-  private filter: string;
-
+  
   constructor(private nounsService: NounsService,
               private tokenService: TokenService,
               private utils: UtilsService) {
@@ -23,10 +22,10 @@ export class NounsPage implements OnInit {
     this.nouns = this.cache = await this.nounsService.getAllNounsAsync();
   }
 
-  private filterChanged(): void {
+  private filter(pattern: string): void {
     this.nouns = this.cache.filter(noun => {
-      return this.utils.stringContainsIgnoreCase(noun.english, this.filter) ||
-             this.utils.stringContainsIgnoreCase(noun.spanish, this.filter);
+      return this.utils.filter(noun.english, pattern) ||
+             this.utils.filter(noun.spanish, pattern);
     });
   }
 }
