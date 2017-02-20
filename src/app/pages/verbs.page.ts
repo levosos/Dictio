@@ -11,7 +11,6 @@ import { Verb } from '../../api/entities/verb.entity';
 export class VerbsPage implements OnInit {
   private cache: Verb[];
   private verbs: Verb[];
-  private filter: string;
 
   constructor(private verbsService: VerbsService,
               private tokenService: TokenService,
@@ -23,10 +22,7 @@ export class VerbsPage implements OnInit {
     this.verbs = this.cache = await this.verbsService.getAllVerbsAsync();
   }
 
-  private filterChanged(): void {
-    this.verbs = this.cache.filter(verb => {
-      return this.utils.filter(verb.infinitive, this.filter) ||
-             this.utils.filter(verb.english, this.filter);
-    });
+  private filter(pattern: string): void {
+    this.verbs = this.cache.filter(verb => this.utils.contains(verb, pattern));
   }
 }

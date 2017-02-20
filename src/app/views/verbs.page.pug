@@ -1,0 +1,21 @@
+dictio-filter-toolbar('[disabled]'='!verbs' '(filter)'='filter($event)') 
+
+.container
+    h2 Verbs
+    .progress('*ngIf'='!verbs')
+        .indeterminate
+    div('*ngIf'='verbs')
+        ul.collection
+            li.collection-item('*ngFor'='let verb of verbs' '(click)'='router.navigateByUrl(\'verb/\' + verb.id)')
+                h5 {{verb.infinitive}}
+                p.grey-text.text-darken-3 {{verb.english}}
+        br
+        p {{verbs.length}} verbs
+
+span('*ngIf'='tokenService.isAdmin()')
+    a.dictio-action-btn.waves-effect.waves-light(
+        style='position: fixed; bottom: 20px; right: 20px;'
+        href='#form'
+    )
+        i.material-icons add
+    add-verb-form

@@ -14,13 +14,6 @@ export class UtilsService {
         return str.charAt(0).toUpperCase() + str.slice(1).toLocaleLowerCase();
     }
 
-    public filter(str: string, substr: string): boolean {
-        str = str.toLowerCase().trim();
-        substr = substr.toLowerCase().trim();
-
-        return str.indexOf(substr) != -1;
-    }
-
     public contains(obj: any, filter: string): boolean {
         filter = filter.toLocaleLowerCase().trim();
 
