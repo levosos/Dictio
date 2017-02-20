@@ -4,6 +4,7 @@ doctype html
         .nav-wrapper
             .input-field
                 input#pattern(
+                    '[disabled]'='disabled'
                     type='search'
                     '#pattern'
                     '(input)'='filter($event.target.value)'
