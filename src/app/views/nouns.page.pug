@@ -1,7 +1,9 @@
 dictio-filter-toolbar('[disabled]'='!nouns' '(filter)'='filter($event)') 
-md-card
-    h2 Nouns    
-    md-progress-bar('*ngIf'='!nouns' mode='indeterminate')
+
+.container
+    h2 Nouns
+    .progress('*ngIf'='!nouns')
+        .indeterminate
     div('*ngIf'='nouns')
         ul.collection
             li.collection-item('*ngFor'='let noun of nouns')
