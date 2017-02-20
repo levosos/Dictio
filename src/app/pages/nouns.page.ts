@@ -27,9 +27,6 @@ export class NounsPage implements OnInit {
       return;
     }
 
-    this.nouns = this.cache.filter(noun => {
-      return this.utils.filter(noun.english, pattern) ||
-             this.utils.filter(noun.spanish, pattern);
-    });
+    this.nouns = this.cache.filter(noun => this.utils.contains(noun, pattern));
   }
 }

@@ -11,7 +11,7 @@ export class UtilsService {
     }
 
     public capitalize(str: string): string {
-        return str.charAt(0).toUpperCase() + str.slice(1);
+        return str.charAt(0).toUpperCase() + str.slice(1).toLocaleLowerCase();
     }
 
     public filter(str: string, substr: string): boolean {
@@ -19,5 +19,28 @@ export class UtilsService {
         substr = substr.toLowerCase().trim();
 
         return str.indexOf(substr) != -1;
+    }
+
+    public contains(obj: any, filter: string): boolean {
+        filter = filter.toLocaleLowerCase().trim();
+
+        for (let propertyName in obj) {
+            if (!obj.hasOwnProperty(propertyName)) {
+                continue;
+            }
+
+            let propertyValue = obj[propertyName];
+            if (typeof propertyValue === 'string') {
+                if (propertyValue.toLocaleLowerCase().indexOf(filter) !== -1) {
+                    return true;
+                }
+            } else if (typeof propertyValue === 'object') {
+                if (this.contains(propertyValue, filter)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }
