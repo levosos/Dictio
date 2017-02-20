@@ -10,7 +10,6 @@ import { Conjunction } from '../../api/entities/conjunction.entity';
 export class ConjunctionsPage implements OnInit {
   private cache: Conjunction[];
   private conjunctions: Conjunction[];
-  private filter: string;
 
   constructor(private conjunctionsService: ConjunctionsService,
               private tokenService: TokenService,
@@ -21,10 +20,7 @@ export class ConjunctionsPage implements OnInit {
     this.conjunctions = this.cache = await this.conjunctionsService.getAllConjunctionsAsync();
   }
 
-  private filterChanged(): void {
-    this.conjunctions = this.cache.filter(conjunction => {
-      return this.utils.filter(conjunction.english, this.filter) ||
-             this.utils.filter(conjunction.spanish, this.filter);
-    });
+  private filter(pattern: string): void {
+    this.conjunctions = this.cache.filter(conjunction => this.utils.contains(conjunction, pattern));
   }
 }

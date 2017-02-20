@@ -1,32 +1,25 @@
 doctype html
-.row
-    .col.s12
-        .dictio-card
-            .card-content
-                .card-title
-                    h3 Add a word
-                .divider
-                .row
-                    .input-field.col.s6
-                        input#english(
-                            type='text' 
-                            '[(ngModel)]'='english'
-                            '#englishInput'='ngModel'
-                            placeholder='English' 
-                            required
-                        )
-                        label(for='english') English
-                    .input-field.col.s6
-                        input#spanish(
-                            type='text' 
-                            '[(ngModel)]'='spanish'
-                            '#spanishInput'='ngModel'
-                            placeholder='Spanish' 
-                            required
-                        )
-                        label(for='spanish') Spanish
-            .card-action
-                a.btn.waves-effect.waves-light(
-                    '(click)'='submitAsync()' 
-                    '[ngClass]'='{ \'disabled\': !englishInput.valid || !spanishInput.valid }'
-                    ) Submit
+.modal.bottom-sheet#form(materialize='modal')
+    .modal-content
+        .row
+            .input-field.col.s5
+                input#english(
+                    type='text' 
+                    '[(ngModel)]'='english'
+                    '#englishInput'='ngModel'
+                    placeholder='English' 
+                    required
+                )
+            .input-field.col.s5
+                input#spanish(
+                    type='text' 
+                    '[(ngModel)]'='spanish'
+                    '#spanishInput'='ngModel'
+                    placeholder='Spanish' 
+                    required
+                )
+    .modal-footer
+        a.btn.modal-action.modal-close.waves-effect.waves-green(
+            '(click)'='submitAsync()' 
+            '[ngClass]'='{ \'disabled\': !englishInput.valid || !spanishInput.valid }'
+            ) Add

@@ -1,0 +1,21 @@
+dictio-filter-toolbar('[disabled]'='!conjunctions' '(filter)'='filter($event)') 
+
+.container
+    h2 Conjunction Words
+    .progress('*ngIf'='!conjunctions')
+        .indeterminate
+    div('*ngIf'='conjunctions')
+        ul.collection
+            li.collection-item('*ngFor'='let conjunction of conjunctions')
+                h5 {{conjunction.spanish}}
+                p.grey-text.text-darken-3 {{conjunction.english}}
+        br
+        p {{conjunctions.length}} words
+
+span('*ngIf'='tokenService.isAdmin()')
+    a.dictio-action-btn.waves-effect.waves-light(
+        style='position: fixed; bottom: 20px; right: 20px;'
+        href='#form'
+    )
+        i.material-icons add
+    add-conjunction-form
