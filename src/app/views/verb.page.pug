@@ -1,0 +1,22 @@
+.container
+    .progress('*ngIf'='!verb')
+        .indeterminate
+    div('*ngIf'='verb')
+        h2 {{verb.infinitive}}
+        h5 to {{verb.english}}
+        .divider
+        dictio-primitive(caption='Participle:' '[primitive]'='verb.participle')
+        dictio-primitive(caption='Gerund:' '[primitive]'='verb.gerund')
+        ul.collapsible(materialize='collapsible' data-collapsible='accordion')
+            li('*ngFor'='let tense of verb.tenses')
+                .collapsible-header 
+                    h5 {{tense.name}}
+                .collapsible-body
+                    .container
+                        dictio-primitive(caption='yo' '[primitive]'='tense.yo')
+                        dictio-primitive(caption='tú' '[primitive]'='tense.tu')
+                        dictio-primitive(caption='él/ella/usted' '[primitive]'='tense.el')
+                        dictio-primitive(caption='nosotros' '[primitive]'='tense.nosotros')
+                        dictio-primitive(caption='vosotros' '[primitive]'='tense.vosotros')
+                        dictio-primitive(caption='ellos/ellas/ustedes' '[primitive]'='tense.ellos')
+        blockquote.red-text Red words mean they are irregular

@@ -6,7 +6,7 @@ import { Verb } from '../../api/entities/verb.entity';
 
 @Component({
   selector: 'dictio-primitive',
-  template: '<p>{{caption}} <b><font [color]="primitive.irregular ? \'red\' : \'black\'">{{primitive.word}}</font></b></p>'
+  templateUrl: 'views/primitive.component.html'
 })
 export class PrimitiveComponent {
   @Input() primitive: Primitive;
@@ -26,6 +26,8 @@ export class VerbPage implements OnInit {
 
   public ngOnInit() {
       this.sub = this.router.params.subscribe(params => {
+          this.verb = undefined; // To show the progress bar
+          
           const id = params['id'];
           this.verbsService.getVerbAsync(id).then(verb => this.verb = verb);
     });
