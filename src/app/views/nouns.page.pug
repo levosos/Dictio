@@ -1,0 +1,22 @@
+dictio-filter-toolbar('[disabled]'='!nouns' '(filter)'='filter($event)') 
+md-card
+    h2 Nouns    
+    md-progress-bar('*ngIf'='!nouns' mode='indeterminate')
+    div('*ngIf'='nouns')
+        ul.collection
+            li.collection-item('*ngFor'='let noun of nouns')
+                h5
+                    span.grey-text.text-lighten-1 {{noun.gender == Gender.Masculine ? 'el' : 'la'}} 
+                    span  {{noun.spanish}}
+                p.grey-text.text-darken-3 {{noun.english}}
+                p.grey-text('*ngIf'='!noun.countable') uncountable
+        br
+        p {{nouns.length}} nouns
+
+span('*ngIf'='tokenService.isAdmin()')
+    a.dictio-action-btn.waves-effect.waves-light(
+        style='position: fixed; bottom: 20px; right: 20px;'
+        href='#form'
+    )
+        i.material-icons add
+    add-noun-form
