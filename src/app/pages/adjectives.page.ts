@@ -10,7 +10,6 @@ import { Adjective } from '../../api/entities/adjective.entity';
 export class AdjectivesPage implements OnInit {
   private cache: Adjective[];
   private adjectives: Adjective[];
-  private filter: string;
 
   constructor(private adjectivesService: AdjectivesService,
               private tokenService: TokenService,
@@ -21,10 +20,7 @@ export class AdjectivesPage implements OnInit {
     this.adjectives = this.cache = await this.adjectivesService.getAllAdjectivesAsync();
   }
 
-  private filterChanged(): void {
-    this.adjectives = this.cache.filter(adjective => {
-      return this.utils.filter(adjective.english, this.filter) ||
-             this.utils.filter(adjective.spanish, this.filter);
-    });
+  private filter(pattern: string): void {
+    this.adjectives = this.cache.filter(adjective => this.utils.contains(adjective, pattern));
   }
 }

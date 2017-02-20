@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NounsService } from '../services/nouns.service';
 import { TokenService } from '../services/token.service';
 import { UtilsService } from '../services/utils.service';

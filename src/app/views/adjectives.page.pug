@@ -1,0 +1,21 @@
+dictio-filter-toolbar('[disabled]'='!adjectives' '(filter)'='filter($event)') 
+
+.container
+    h2 Adjectives
+    .progress('*ngIf'='!adjectives')
+        .indeterminate
+    div('*ngIf'='adjectives')
+        ul.collection
+            li.collection-item('*ngFor'='let adjective of adjectives')
+                h5 {{adjective.spanish}}
+                p.grey-text.text-darken-3 {{adjective.english}}
+        br
+        p {{adjectives.length}} adjectives
+
+span('*ngIf'='tokenService.isAdmin()')
+    a.dictio-action-btn.waves-effect.waves-light(
+        style='position: fixed; bottom: 20px; right: 20px;'
+        href='#form'
+    )
+        i.material-icons add
+    add-adjective-form
