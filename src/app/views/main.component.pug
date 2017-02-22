@@ -1,0 +1,33 @@
+doctype html
+div('materialize')
+  ul.dropdown-content#menu
+    li
+      a(href='#/logout')
+        i.material-icons.waves-effect.waves-light close
+        | Log out
+  
+  div.navbar-fixed
+    nav
+      .nav-wrapper
+        a.brand-logo.center.dictio-tm(href='#') Dictio
+        i.material-icons.dropdown-button.waves-effect.waves-light.right(
+          '*ngIf'='tokenService.isLoggedIn()'
+          materialize='dropdown' 
+          data-activates='menu'
+          ) more_vert
+
+  router-outlet
+
+  footer.page-footer
+    .container
+      .row
+        .col('*ngFor'='let section of sections')
+          h5.white-text {{section.name}}
+          ul
+            li('*ngFor'='let item of section.items')
+              a.grey-text.text-lighten-3('[href]'='item.url') {{item.name}}
+    .class.footer-copyright
+      .container
+        span.dictio-tm Dictio 
+        | © 2017
+        a.material-icons.grey-text.text-lighten-3.right(href='https://github.com/levosos/Dictio') code
