@@ -56,6 +56,7 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
 
 .dictio-tm {
     font-family: 'Pacifico', cursive;   
+    font-weight: lighter;
 }
 
 .dictio-action-btn {
@@ -65,4 +66,8 @@ $dictio-theme: md-light-theme($dictio-primary, $dictio-accent, $dictio-warn);
     @extend .light-blue;
     @extend .lighten-3;
     @extend .z-depth-3;
+}
+
+.dictio-font {
+    font-weight: 300;
 }

@@ -11,6 +11,7 @@ export class PracticePage implements OnInit {
 
   private nouns: Noun[];
   private index: number = 0;
+  private help: boolean = false;
 
   constructor(private nounsService: NounsService,
               private utils: UtilsService) {
@@ -27,5 +28,6 @@ export class PracticePage implements OnInit {
       }
       
       ++this.index;
+      this.help = false;
   }
 }
