@@ -19,7 +19,7 @@ export class VerbsPage implements OnInit {
   }
   
   public async ngOnInit(): Promise<void> {
-    this.verbs = this.cache = await this.verbsService.getAllVerbsAsync();
+    this.verbs = this.cache = await this.verbsService.getAllVerbs();
   }
 
   private filter(pattern: string): void {

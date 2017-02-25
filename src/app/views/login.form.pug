@@ -25,6 +25,6 @@ doctype html
                             )
             .card-action
                 a.btn.waves-effect.waves-light(
-                    '(click)'='loginAsync()' 
+                    '(click)'='login()' 
                     '[ngClass]'='{ \'red\': error, \'disabled\': !usernameInput.valid || !passwordInput.valid }'
                     ) Login

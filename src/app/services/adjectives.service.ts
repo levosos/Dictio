@@ -9,11 +9,11 @@ export class AdjectivesService {
     constructor(private http: HttpService) {
     }
 
-    public getAllAdjectivesAsync(): Promise<Adjective[]> {
-        return this.http.getAsync(AdjectivesService.RestPath);
+    public getAllAdjectives(): Promise<Adjective[]> {
+        return this.http.get(AdjectivesService.RestPath);
     }
     
-    public addAdjectiveAsync(adjective: Adjective): Promise<void> {
-        return this.http.authPostAsync(AdjectivesService.RestPath, adjective);
+    public addAdjective(adjective: Adjective): Promise<void> {
+        return this.http.authPost(AdjectivesService.RestPath, adjective);
     }
 }

@@ -8,7 +8,7 @@ import * as conjunctions from '../repositories/conjunctions.repository';
 export class ConjunctionsController {
     @Get('/')
     @UndefinedResultCode(500)
-    public async getAllConjunctionsAsync(): Promise<Conjunction[]> {
+    public async getAllConjunctions(): Promise<Conjunction[]> {
         return await conjunctions.getAllConjunctions();
     }
 

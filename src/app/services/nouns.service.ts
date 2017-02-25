@@ -9,11 +9,11 @@ export class NounsService {
     constructor(private http: HttpService) {
     }
 
-    public getAllNounsAsync(): Promise<Noun[]> {
-        return this.http.getAsync(NounsService.RestPath);
+    public getAllNouns(): Promise<Noun[]> {
+        return this.http.get(NounsService.RestPath);
     }
     
-    public addNounAsync(noun: Noun): Promise<void> {
-        return this.http.authPostAsync(NounsService.RestPath, noun);
+    public addNoun(noun: Noun): Promise<void> {
+        return this.http.authPost(NounsService.RestPath, noun);
     }
 }

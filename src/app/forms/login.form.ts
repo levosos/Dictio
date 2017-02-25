@@ -13,14 +13,14 @@ export class LoginForm {
     constructor(private tokenService: TokenService) {
     }
 
-    public async loginAsync(): Promise<void>
+    public async login(): Promise<void>
     {
         let credentials = new Credentials(
             this.username, 
             this.password);
         
         try {
-            await this.tokenService.loginAsync(credentials);
+            await this.tokenService.login(credentials);
         } catch (e) {
             this.error = e;
         }

@@ -8,7 +8,7 @@ import * as users from '../repositories/users.repository';
 export class TokensController {
     @Post('/')
     @UndefinedResultCode(500)
-    public async loginUser(@Body({ required: true }) credentials: Credentials): Promise<string> {
+    public async login(@Body({ required: true }) credentials: Credentials): Promise<string> {
         const user = await users.findUser(credentials.username);
 
         if (user == undefined || user.password != credentials.password) {

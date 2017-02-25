@@ -15,7 +15,7 @@ export class AddConjunctionForm {
                 private utils: UtilsService) {
     }
 
-    public async submitAsync(): Promise<void>
+    public async submit(): Promise<void>
     {
         const conjunction: Conjunction = {
           'id': undefined,
@@ -23,7 +23,7 @@ export class AddConjunctionForm {
           'spanish': this.spanish.trim().toLowerCase()
         };
           
-        await this.conjunctionsService.addConjunctionAsync(conjunction);
+        await this.conjunctionsService.addConjunction(conjunction);
 
         this.utils.toast('Added word \'' + this.english + '\' \'' + this.spanish + '\'');
     }    

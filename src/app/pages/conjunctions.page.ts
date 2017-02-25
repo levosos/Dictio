@@ -17,7 +17,7 @@ export class ConjunctionsPage implements OnInit {
   }
   
   public async ngOnInit(): Promise<void> {
-    this.conjunctions = this.cache = await this.conjunctionsService.getAllConjunctionsAsync();
+    this.conjunctions = this.cache = await this.conjunctionsService.getAllConjunctions();
   }
 
   private filter(pattern: string): void {

@@ -29,7 +29,7 @@ export class VerbPage implements OnInit {
           this.verb = undefined; // To show the progress bar
           
           const id = params['id'];
-          this.verbsService.getVerbAsync(id).then(verb => this.verb = verb);
+          this.verbsService.getVerb(id).then(verb => this.verb = verb);
     });
   }
 

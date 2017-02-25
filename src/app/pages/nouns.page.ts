@@ -19,7 +19,7 @@ export class NounsPage implements OnInit {
   }
   
   public async ngOnInit(): Promise<void> {
-    this.nouns = this.cache = await this.nounsService.getAllNounsAsync();
+    this.nouns = this.cache = await this.nounsService.getAllNouns();
   }
 
   private filter(pattern: string): void {

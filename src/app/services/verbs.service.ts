@@ -9,15 +9,15 @@ export class VerbsService {
     constructor(private http: HttpService) {
     }
 
-    public getAllVerbsAsync(): Promise<Verb[]> {
-        return this.http.getAsync(VerbsService.RestPath);
+    public getAllVerbs(): Promise<Verb[]> {
+        return this.http.get(VerbsService.RestPath);
     }
     
-    public getVerbAsync(id: number): Promise<Verb> {
-        return this.http.getAsync(VerbsService.RestPath + '/' + id);
+    public getVerb(id: number): Promise<Verb> {
+        return this.http.get(VerbsService.RestPath + '/' + id);
     }
 
-    public addVerbAsync(verb: Verb): Promise<void> {
-        return this.http.authPostAsync(VerbsService.RestPath, verb);
+    public addVerb(verb: Verb): Promise<void> {
+        return this.http.authPost(VerbsService.RestPath, verb);
     }
 }

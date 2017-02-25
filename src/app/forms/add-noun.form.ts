@@ -19,7 +19,7 @@ export class AddNounForm {
                 private utils: UtilsService) {
     }
 
-    public async submitAsync(): Promise<void>
+    public async submit(): Promise<void>
     {
         const noun: Noun = {
           'id': undefined,
@@ -29,7 +29,7 @@ export class AddNounForm {
           'countable': this.countable
         };
           
-        await this.nounsService.addNounAsync(noun);
+        await this.nounsService.addNoun(noun);
 
         this.utils.toast('Added noun \'' + this.english + '\' \'' + this.spanish + '\'');
     }    

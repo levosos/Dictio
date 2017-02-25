@@ -17,7 +17,7 @@ export class AdjectivesPage implements OnInit {
   }
   
   public async ngOnInit(): Promise<void> {
-    this.adjectives = this.cache = await this.adjectivesService.getAllAdjectivesAsync();
+    this.adjectives = this.cache = await this.adjectivesService.getAllAdjectives();
   }
 
   private filter(pattern: string): void {

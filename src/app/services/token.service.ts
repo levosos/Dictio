@@ -39,9 +39,9 @@ export class TokenService {
         return tokenNotExpired();
     }
     
-    public async loginAsync(credentials: Credentials): Promise<void> {
+    public async login(credentials: Credentials): Promise<void> {
         if (!this.isLoggedIn()) {
-            let token: string = await this.http.postAsync(TokenService.RestPath, credentials);
+            let token: string = await this.http.post(TokenService.RestPath, credentials);
             localStorage.setItem(TokenService.LocalStorageKey, token);
             this.utils.toast('Logged in as \'' + this.utils.capitalize(this.user.username) + '\'');
         }

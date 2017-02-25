@@ -16,7 +16,7 @@ export class AddAdjectiveForm {
                 private utils: UtilsService) {
     }
 
-    public async submitAsync(): Promise<void>
+    public async submit(): Promise<void>
     {
         const adjective: Adjective = {
           'id': undefined,
@@ -25,7 +25,7 @@ export class AddAdjectiveForm {
           'formable': this.formable
         };
           
-        await this.adjectivesService.addAdjectiveAsync(adjective);
+        await this.adjectivesService.addAdjective(adjective);
 
         this.utils.toast('Added adjective \'' + this.english + '\' \'' + this.spanish + '\'');
     }    

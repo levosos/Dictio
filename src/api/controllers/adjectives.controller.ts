@@ -8,7 +8,7 @@ import * as adjectives from '../repositories/adjectives.repository';
 export class AdjectivesController {
     @Get('/')
     @UndefinedResultCode(500)
-    public async getAllAdjectivesAsync(): Promise<Adjective[]> {
+    public async getAllAdjectives(): Promise<Adjective[]> {
         return await adjectives.getAllAdjectives();
     }
 

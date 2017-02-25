@@ -15,7 +15,7 @@ export class AddVerbForm {
                 private utils: UtilsService) {
     }
 
-    public async submitAsync(): Promise<void>
+    public async submit(): Promise<void>
     {
         const verb: Verb = {
           'id': undefined,
@@ -26,7 +26,7 @@ export class AddVerbForm {
           'tenses': undefined
         };
           
-        await this.verbsService.addVerbAsync(verb);
+        await this.verbsService.addVerb(verb);
 
         this.utils.toast('Added verb \'' + this.english + '\' \'' + this.spanish + '\'');
     }    

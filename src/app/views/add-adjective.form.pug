@@ -26,6 +26,6 @@ doctype html
             label(for='formable') Formable
     .modal-footer
         a.btn.modal-action.modal-close.waves-effect.waves-green(
-            '(click)'='submitAsync()' 
+            '(click)'='submit()' 
             '[ngClass]'='{ \'disabled\': !englishInput.valid || !spanishInput.valid }'
             ) Add

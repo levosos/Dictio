@@ -8,7 +8,7 @@ import * as nouns from '../repositories/nouns.repository';
 export class NounsController {
     @Get('/')
     @UndefinedResultCode(500)
-    public async getAllNounsAsync(): Promise<Noun[]> {
+    public async getAllNouns(): Promise<Noun[]> {
         return await nouns.getAllNouns();
     }
 

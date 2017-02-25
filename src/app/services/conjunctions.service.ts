@@ -9,11 +9,11 @@ export class ConjunctionsService {
     constructor(private http: HttpService) {
     }
 
-    public getAllConjunctionsAsync(): Promise<Conjunction[]> {
-        return this.http.getAsync(ConjunctionsService.RestPath);
+    public getAllConjunctions(): Promise<Conjunction[]> {
+        return this.http.get(ConjunctionsService.RestPath);
     }
     
-    public addConjunctionAsync(conjunction: Conjunction): Promise<void> {
-        return this.http.authPostAsync(ConjunctionsService.RestPath, conjunction);
+    public addConjunction(conjunction: Conjunction): Promise<void> {
+        return this.http.authPost(ConjunctionsService.RestPath, conjunction);
     }
 }
