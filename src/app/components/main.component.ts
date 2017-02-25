@@ -12,6 +12,7 @@ export class MainComponent {
     return [
       { name: 'Navigate', items: [
         { name: 'index', url: '#' },
+        { name: 'practice', url: '#/practice' },
         this.tokenService.isLoggedIn() ? 
           { name: 'logout', url: '#/logout' } : 
           { name: 'login', url: '#/login' }

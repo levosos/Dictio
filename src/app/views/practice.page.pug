@@ -1,0 +1,11 @@
+.container
+    .progress('*ngIf'='!nouns')
+        .indeterminate
+    .card.yellow.lighten-4.z-depth-2(
+        '*ngIf'='nouns'
+        '(click)'='next()'
+        style='margin-top: 40px'
+        )
+        .card-content
+            .card-title {{nouns[index].gender == Gender.Masculine ? 'el' : 'la'}} {{nouns[index].spanish}}
+    div('*ngIf'='nouns') {{index + 1}} / {{nouns.length}}

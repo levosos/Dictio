@@ -21,6 +21,7 @@ import { AdjectivesPage }   from './pages/adjectives.page';
 import { VerbsPage }        from './pages/verbs.page';
 import { VerbPage }         from './pages/verb.page';
 import { ConjunctionsPage } from './pages/conjunctions.page';
+import { PracticePage }     from './pages/practice.page';
 
 // Forms
 import { AddNounForm }        from './forms/add-noun.form';
@@ -52,7 +53,8 @@ import { UtilsService }         from './services/utils.service';
           { path: 'adjectives', component: AdjectivesPage },
           { path: 'verbs', component: VerbsPage },
           { path: 'verb/:id', component: VerbPage },
-          { path: 'conjunctions', component: ConjunctionsPage }
+          { path: 'conjunctions', component: ConjunctionsPage },
+          { path: 'practice', component: PracticePage }
         ]
       },
       { path: 'login',  component: LoginForm },
@@ -85,6 +87,7 @@ import { UtilsService }         from './services/utils.service';
     VerbsPage,
     VerbPage,
     ConjunctionsPage,
+    PracticePage,
 
     // Forms
     AddNounForm,
