@@ -51,14 +51,14 @@ export class Tense {
         }
 
     public static fromHTML(html: string): Tense {
-        const pattern = '<h3>(.*?)</h3>'                                    +
-                            '[^]*?'                                         +
-                            '<span class="normal">yo</span>([^]*?)'         +
-                            '<span class="normal">t&uacute;</span>([^]*?)'  +
-                            '<span class="normal">&eacute;l</span>([^]*?)'  +
-                            '<span class="normal">nosotros</span>([^]*?)'   +
-                            '<span class="normal">vosotros</span>([^]*?)'   +
-                            '<span class="normal">ellos</span>([^]*?)<br>';
+        const pattern = '<h3>(.*?)</h3>'                                        +
+                            '[^]*?'                                             +
+                            '<span class="pronoun">yo</span>([^]*?)'            +
+                            '<span class="pronoun">.*?</span>([^]*?)'           +
+                            '<span class="pronoun">.*?</span>([^]*?)'           +
+                            '<span class="pronoun">nosotros</span>([^]*?)'      +
+                            '<span class="pronoun">vosotros</span>([^]*?)'      +
+                            '<span class="pronoun">ellos</span>([^]*?)</table>';
 
         const match = regex.find(html, pattern);
 
