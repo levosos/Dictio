@@ -9,7 +9,7 @@ import { User, Role } from '../../api/entities/user.entity';
 @Injectable()
 export class TokenService {
     private static RestPath: string = 'rest/token';
-    private static LocalStorageKey: string = 'id_token';
+    private static LocalStorageKey: string = 'token';
 
     constructor(private http: HttpService,
                 private utils: UtilsService,

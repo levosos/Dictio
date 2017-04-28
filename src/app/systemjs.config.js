@@ -23,6 +23,7 @@
       '@angular/forms':                     'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade':                   'npm:@angular/upgrade/bundles/upgrade.umd.js',
       '@angular/material':                  'npm:@angular/material/bundles/material.umd.js',
+      '@angular/animations':                'npm:@angular/animations/bundles/animations.umd.js',
       'angular2-jwt':                       'npm:angular2-jwt/angular2-jwt.js',
       'typeorm':                            'npm:typeorm/typeorm-model-shim.js',
       'rxjs':                               'npm:rxjs',

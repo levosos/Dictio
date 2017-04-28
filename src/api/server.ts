@@ -5,7 +5,7 @@ import { join } from 'path';
 
 async function main(): Promise<void> {
     const port = process.env.PORT || 8080;
-    const path = join(__dirname, '../app/app');
+    const path = join(__dirname, '../app');
 
     const app = createExpressServer({
         controllers: [__dirname + '/controllers/**/*.js'],
