@@ -1,11 +1,12 @@
 // Global
-import { NgModule }           from '@angular/core';
-import { BrowserModule }      from '@angular/platform-browser';
-import { MaterialModule }     from '@angular/material';
-import { RouterModule }       from '@angular/router';
-import { FormsModule }        from '@angular/forms';
-import { AUTH_PROVIDERS }     from 'angular2-jwt';
-import { MaterializeModule }  from "angular2-materialize";
+import { NgModule }                 from '@angular/core';
+import { BrowserModule }            from '@angular/platform-browser';
+import { BrowserAnimationsModule }  from '@angular/platform-browser/animations';
+import { MaterialModule }           from '@angular/material';
+import { RouterModule }             from '@angular/router';
+import { FormsModule }              from '@angular/forms';
+import { AUTH_PROVIDERS }           from 'angular2-jwt';
+import { MaterializeModule }        from "angular2-materialize";
 
 // Components
 import { AppComponent }           from './components/app.component';
@@ -42,6 +43,7 @@ import { UtilsService }         from './services/utils.service';
 @NgModule({
   imports:      [ 
     BrowserModule, 
+    BrowserAnimationsModule,
     MaterialModule.forRoot(),
     MaterializeModule,
     RouterModule.forRoot([
