@@ -1,33 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { NounsService } from '../services/nouns.service';
 import { UtilsService } from '../services/utils.service';
-import { Noun, Gender } from '../../api/entities/noun.entity';
+import { Noun } from '../../api/entities/noun.entity';
+import { Challenge } from '../chellengers/challenger';
+import { NounsChallenger } from '../chellengers/nouns.challenger';
 
 @Component({
-  templateUrl: 'views/practice.page.html'
+  templateUrl: 'views/practice.page.html',
+  providers: [ NounsChallenger ]
 })
 export class PracticePage implements OnInit {
-  private Gender = Gender;
-
-  private nouns: Noun[];
-  private index: number = 0;
+  private challenge: Challenge;
   private help: boolean = false;
-
-  constructor(private nounsService: NounsService,
-              private utils: UtilsService) {
+  
+  constructor(private nounsChallenger: NounsChallenger) {
   }
   
   public async ngOnInit(): Promise<void> {
-    this.nouns = await this.nounsService.getAllNouns();
-    this.utils.shuffle(this.nouns);
+    await this.next();
   }
 
-  private next(): void {
-      if (this.index == this.nouns.length - 1) {
-          return;
-      }
-      
-      ++this.index;
-      this.help = false;
+  private async next(): Promise<void> {
+    const challenge = await this.nounsChallenger.challenge();
+
+    if (challenge === undefined) {
+      return;
+    }
+
+    this.challenge = challenge;
+    this.help = false;
   }
 }

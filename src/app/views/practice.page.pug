@@ -1,15 +1,14 @@
 .container
-    .progress('*ngIf'='!nouns')
+    .progress('*ngIf'='!challenge')
         .indeterminate
     .card.yellow.lighten-4.z-depth-2(
-        '*ngIf'='nouns'
+        '*ngIf'='challenge'
         '(click)'='next()'
         style='margin-top: 40px'
         )
         .card-content.dictio-font(style='font-size: 28px')
             div 
-                | {{nouns[index].gender == Gender.Masculine ? 'el' : 'la'}} {{nouns[index].spanish}}
-                i.material-icons.grey-text.right('(click)'='help = !help; $event.stopPropagation();') {{help ? 'help' : 'help_outline'}}
-            .grey-text('*ngIf'='help') {{nouns[index].english}}
-    div('*ngIf'='nouns') {{index + 1}} / {{nouns.length}}
+                | {{challenge.spanish}}
+                i.material-icons.grey-text.right(style='font-size: 36px' '(click)'='help = !help; $event.stopPropagation();') {{help ? 'help' : 'help_outline'}}
+            .grey-text('*ngIf'='help') {{challenge.english}}
     blockquote Click on the card to proceed
