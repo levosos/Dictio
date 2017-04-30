@@ -2,11 +2,17 @@ import { UtilsService } from '../services/utils.service';
 
 export class Challenge
 {
+  description: string;
   english: string;
   spanish: string;
 }
 
-export abstract class Challenger<T>
+export interface IChallenger
+{
+  challenge(): Promise<Challenge | undefined>;  
+}
+
+export abstract class Challenger<T> implements IChallenger
 {
   private members: T[];
 

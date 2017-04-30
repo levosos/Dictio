@@ -16,6 +16,7 @@ export class NounsChallenger extends Challenger<Noun> {
   
   convert(member: Noun): Challenge {
     return {
+      description: 'noun',
       english: member.english,
       spanish: (member.gender == Gender.Masculine ? 'el' : 'la') + ' ' + member.spanish
     };
