@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdjectivesService } from '../services/adjectives.service';
 import { TokenService } from '../services/token.service';
-import { UtilsService } from '../services/utils.service';
+import { Utils } from '../services/utils.service';
 import { Adjective } from '../../api/entities/adjective.entity';
 
 @Component({
@@ -12,8 +12,7 @@ export class AdjectivesPage implements OnInit {
   private adjectives: Adjective[];
 
   constructor(private adjectivesService: AdjectivesService,
-              private tokenService: TokenService,
-              private utils: UtilsService) {
+              private tokenService: TokenService) {
   }
   
   public async ngOnInit(): Promise<void> {
@@ -21,6 +20,6 @@ export class AdjectivesPage implements OnInit {
   }
 
   private filter(pattern: string): void {
-    this.adjectives = this.cache.filter(adjective => this.utils.contains(adjective, pattern));
+    this.adjectives = this.cache.filter(adjective => Utils.contains(adjective, pattern));
   }
 }

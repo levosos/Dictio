@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { VerbsService } from '../services/verbs.service';
 import { TokenService } from '../services/token.service';
-import { UtilsService } from '../services/utils.service';
+import { Utils } from '../services/utils.service';
 import { Verb } from '../../api/entities/verb.entity';
 
 @Component({
@@ -14,7 +14,6 @@ export class VerbsPage implements OnInit {
 
   constructor(private verbsService: VerbsService,
               private tokenService: TokenService,
-              private utils: UtilsService,
               private router: Router) {
   }
   
@@ -23,6 +22,6 @@ export class VerbsPage implements OnInit {
   }
 
   private filter(pattern: string): void {
-    this.verbs = this.cache.filter(verb => this.utils.contains(verb, pattern));
+    this.verbs = this.cache.filter(verb => Utils.contains(verb, pattern));
   }
 }

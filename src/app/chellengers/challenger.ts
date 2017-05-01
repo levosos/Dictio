@@ -1,4 +1,4 @@
-import { UtilsService } from '../services/utils.service';
+import { Utils } from '../services/utils.service';
 
 export class Challenge
 {
@@ -16,14 +16,11 @@ export abstract class Challenger<T> implements IChallenger
 {
   private members: T[];
 
-  constructor(private utils: UtilsService) {
-  }
-  
   async challenge(): Promise<Challenge | undefined>
   {
     if (this.members === undefined) {
       this.members = await this.init();
-      this.utils.shuffle(this.members);
+      Utils.shuffle(this.members);
     }
 
     const member: T = this.members.pop();

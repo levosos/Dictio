@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NounsService } from '../services/nouns.service';
 import { TokenService } from '../services/token.service';
-import { UtilsService } from '../services/utils.service';
+import { Utils } from '../services/utils.service';
 import { Noun, Gender } from '../../api/entities/noun.entity';
 
 @Component({
@@ -14,8 +14,7 @@ export class NounsPage implements OnInit {
   private nouns: Noun[];
   
   constructor(private nounsService: NounsService,
-              private tokenService: TokenService,
-              private utils: UtilsService) {
+              private tokenService: TokenService) {
   }
   
   public async ngOnInit(): Promise<void> {
@@ -23,6 +22,6 @@ export class NounsPage implements OnInit {
   }
 
   private filter(pattern: string): void {
-    this.nouns = this.cache.filter(noun => this.utils.contains(noun, pattern));
+    this.nouns = this.cache.filter(noun => Utils.contains(noun, pattern));
   }
 }

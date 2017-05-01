@@ -9,12 +9,15 @@ export class UtilsService {
     public toast(msg: string): void {
         this.snackBar.open(msg, '', { duration: 4500 });
     }
+}
 
-    public capitalize(str: string): string {
+export class Utils
+{
+    public static capitalize(str: string): string {
         return str.charAt(0).toUpperCase() + str.slice(1).toLocaleLowerCase();
     }
 
-    public contains(obj: any, filter: string): boolean {
+    public static contains(obj: any, filter: string): boolean {
         filter = filter.toLocaleLowerCase().trim();
 
         for (let propertyName in obj) {
@@ -28,7 +31,7 @@ export class UtilsService {
                     return true;
                 }
             } else if (typeof propertyValue === 'object') {
-                if (this.contains(propertyValue, filter)) {
+                if (Utils.contains(propertyValue, filter)) {
                     return true;
                 }
             }
@@ -36,11 +39,15 @@ export class UtilsService {
 
         return false;
     }
-
-    public shuffle(array: any[]): void {
+    
+    public static shuffle(array: any[]): void {
         for (let i = array.length; i; i--) {
-            let j = Math.floor(Math.random() * i);
+            let j = Utils.generate_random_number(i);
             [array[i - 1], array[j]] = [array[j], array[i - 1]];
         }
+    }
+    
+    public static generate_random_number(max: number): number {
+        return Math.floor(Math.random() * max);
     }
 }
