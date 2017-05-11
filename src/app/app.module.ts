@@ -52,12 +52,12 @@ import { ToolbarService }       from './services/toolbar.service';
         children: 
         [
           { path: '', component: HomePage },
-          { path: 'nouns', component: NounsPage, data: { title: "Nouns" } },
-          { path: 'adjectives', component: AdjectivesPage, data: { title: "Adjectives" } },
-          { path: 'verbs', component: VerbsPage, data: { title: "Verbs" } },
+          { path: 'nouns', component: NounsPage },
+          { path: 'adjectives', component: AdjectivesPage },
+          { path: 'verbs', component: VerbsPage },
           { path: 'verb/:id', component: VerbPage },
-          { path: 'conjunctions', component: ConjunctionsPage, data: { title: "Conjunction Words" } },
-          { path: 'practice', component: PracticePage, data: { title: "Practice" } }
+          { path: 'conjunctions', component: ConjunctionsPage },
+          { path: 'practice', component: PracticePage }
         ]
       },
       { path: 'login',  component: LoginForm },
