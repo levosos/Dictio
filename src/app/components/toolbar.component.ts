@@ -14,7 +14,7 @@ export class ToolbarComponent implements OnDestroy {
 
     constructor(private toolbarService: ToolbarService,
                 private tokenService: TokenService) {
-        this.subscription = toolbarService.filterState$.subscribe(filterState => {
+        this.subscription = toolbarService.filterStateSource.subscribe(filterState => {
             this.filterState = filterState;
         });
     }

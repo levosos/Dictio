@@ -9,7 +9,7 @@ export abstract class ViewPage<T> implements OnInit, OnDestroy {
   protected members: T[];
   
   constructor(private toolbarService: ToolbarService) {
-    this.subscription = toolbarService.filter$.subscribe(filter => {
+    this.subscription = toolbarService.filterSource.subscribe(filter => {
       this.members = this.cache.filter(member => Utils.contains(member, filter));
     });
   }

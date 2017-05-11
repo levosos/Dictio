@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Injectable, EventEmitter } from '@angular/core';
 
 export enum FilterState
 {
@@ -10,15 +9,13 @@ export enum FilterState
 
 @Injectable()
 export class ToolbarService {
-    private filterStateSource = new Subject<FilterState>();
-    public filterState$ = this.filterStateSource.asObservable();
+    public filterStateSource = new EventEmitter<FilterState>();
 
     set filterState(value: FilterState) {
         this.filterStateSource.next(value);
     }
     
-    private filterSource = new Subject<string>();
-    public filter$ = this.filterSource.asObservable();
+    public filterSource = new EventEmitter<string>();
 
     public onFilterChanged(value: string) {
         this.filterSource.next(value);
