@@ -1,5 +1,4 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/subscription';
 import { TokenService } from '../services/token.service';
 import { ToolbarService, FilterState } from '../services/toolbar.service';
 
@@ -8,7 +7,7 @@ import { ToolbarService, FilterState } from '../services/toolbar.service';
   templateUrl: 'views/toolbar.component.html'
 })
 export class ToolbarComponent implements OnDestroy {
-    private subscription: Subscription;
+    private subscription: any;
 
     FilterState = FilterState;
     private filterState: FilterState = FilterState.Hidden;

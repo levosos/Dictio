@@ -1,10 +1,9 @@
 import { OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/subscription';
 import { ToolbarService, FilterState } from '../services/toolbar.service';
 import { Utils } from '../services/utils.service';
 
 export abstract class ViewPage<T> implements OnInit, OnDestroy {
-  private subscription: Subscription;
+  private subscription: any;
 
   private cache: T[];
   protected members: T[];
