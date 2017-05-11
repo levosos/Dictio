@@ -1,16 +1,14 @@
-dictio-filter-toolbar('[disabled]'='!conjunctions' '(filter)'='filter($event)') 
-
 .container.dictio-font
     h2 Conjunction Words
-    .progress('*ngIf'='!conjunctions')
+    .progress('*ngIf'='!members')
         .indeterminate
-    div('*ngIf'='conjunctions')
+    div('*ngIf'='members')
         ul.collection
-            li.collection-item('*ngFor'='let conjunction of conjunctions')
-                h5 {{conjunction.spanish}}
-                p.grey-text.text-darken-3 {{conjunction.english}}
+            li.collection-item('*ngFor'='let member of members')
+                h5 {{member.spanish}}
+                p.grey-text.text-darken-3 {{member.english}}
         br
-        p {{conjunctions.length}} words
+        p {{members.length}} words
 
 span('*ngIf'='tokenService.isAdmin()')
     a.dictio-action-btn.waves-effect.waves-light(

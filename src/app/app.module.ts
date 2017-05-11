@@ -13,7 +13,7 @@ import { AppComponent }           from './components/app.component';
 import { MainComponent }          from './components/main.component';
 import { LogoutComponent }        from './components/logout.component';
 import { PrimitiveComponent }     from './pages/verb.page';
-import { FilterToolbarComponent } from './components/filter-toolbar.component';
+import { ToolbarComponent }       from './components/toolbar.component';
 
 // Pages
 import { HomePage }         from './pages/home.page';
@@ -38,7 +38,8 @@ import { AdjectivesService }    from './services/adjectives.service';
 import { VerbsService }         from './services/verbs.service';
 import { ConjunctionsService }  from './services/conjunctions.service';
 import { TokenService }         from './services/token.service'; 
-import { UtilsService }         from './services/utils.service'; 
+import { UtilsService }         from './services/utils.service';
+import { ToolbarService }       from './services/toolbar.service';
 
 @NgModule({
   imports:      [ 
@@ -72,7 +73,8 @@ import { UtilsService }         from './services/utils.service';
     VerbsService,
     ConjunctionsService,
     TokenService,
-    UtilsService
+    UtilsService,
+    ToolbarService
   ],
   declarations: [ 
     // Components
@@ -80,7 +82,7 @@ import { UtilsService }         from './services/utils.service';
     MainComponent, 
     LogoutComponent,
     PrimitiveComponent,
-    FilterToolbarComponent,
+    ToolbarComponent,
 
     // Pages
     HomePage,

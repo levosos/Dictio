@@ -1,16 +1,14 @@
-dictio-filter-toolbar('[disabled]'='!verbs' '(filter)'='filter($event)') 
-
 .container.dictio-font
     h2 Verbs
-    .progress('*ngIf'='!verbs')
+    .progress('*ngIf'='!members')
         .indeterminate
-    div('*ngIf'='verbs')
+    div('*ngIf'='members')
         ul.collection
-            li.collection-item('*ngFor'='let verb of verbs' '(click)'='router.navigateByUrl(\'verb/\' + verb.id)')
-                h5 {{verb.infinitive}}
-                p.grey-text.text-darken-3 {{verb.english}}
+            li.collection-item('*ngFor'='let member of members' '(click)'='router.navigateByUrl(\'verb/\' + member.id)')
+                h5 {{member.infinitive}}
+                p.grey-text.text-darken-3 {{member.english}}
         br
-        p {{verbs.length}} verbs
+        p {{members.length}} verbs
 
 span('*ngIf'='tokenService.isAdmin()')
     a.dictio-action-btn.waves-effect.waves-light(

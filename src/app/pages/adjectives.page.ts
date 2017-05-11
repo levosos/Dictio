@@ -1,25 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { AdjectivesService } from '../services/adjectives.service';
+import { Component } from '@angular/core';
 import { TokenService } from '../services/token.service';
-import { Utils } from '../services/utils.service';
+import { ToolbarService } from '../services/toolbar.service';
+import { ViewPage } from './view.page';
+import { AdjectivesService } from '../services/adjectives.service';
 import { Adjective } from '../../api/entities/adjective.entity';
 
 @Component({
   templateUrl: 'views/adjectives.page.html'
 })
-export class AdjectivesPage implements OnInit {
-  private cache: Adjective[];
-  private adjectives: Adjective[];
-
+export class AdjectivesPage extends ViewPage<Adjective> {
   constructor(private adjectivesService: AdjectivesService,
-              private tokenService: TokenService) {
+              private tokenService: TokenService,
+              toolbarService: ToolbarService) {
+    super(toolbarService);
   }
   
-  public async ngOnInit(): Promise<void> {
-    this.adjectives = this.cache = await this.adjectivesService.getAllAdjectives();
-  }
-
-  private filter(pattern: string): void {
-    this.adjectives = this.cache.filter(adjective => Utils.contains(adjective, pattern));
+  protected async init(): Promise<Adjective[]> {
+    return await this.adjectivesService.getAllAdjectives();
   }
 }

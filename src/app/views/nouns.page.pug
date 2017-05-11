@@ -1,19 +1,17 @@
-dictio-filter-toolbar('[disabled]'='!nouns' '(filter)'='filter($event)') 
-
 .container.dictio-font
     h2 Nouns
-    .progress('*ngIf'='!nouns')
+    .progress('*ngIf'='!members')
         .indeterminate
-    div('*ngIf'='nouns')
+    div('*ngIf'='members')
         ul.collection
-            li.collection-item('*ngFor'='let noun of nouns')
+            li.collection-item('*ngFor'='let member of members')
                 h5
-                    span.grey-text.text-lighten-1 {{noun.gender == Gender.Masculine ? 'el' : 'la'}} 
-                    span  {{noun.spanish}}
-                p.grey-text.text-darken-3 {{noun.english}}
-                p.grey-text('*ngIf'='!noun.countable') uncountable
+                    span.grey-text.text-lighten-1 {{member.gender == Gender.Masculine ? 'el' : 'la'}} 
+                    span  {{member.spanish}}
+                p.grey-text.text-darken-3 {{member.english}}
+                p.grey-text('*ngIf'='!member.countable') uncountable
         br
-        p {{nouns.length}} nouns
+        p {{members.length}} nouns
 
 span('*ngIf'='tokenService.isAdmin()')
     a.dictio-action-btn.waves-effect.waves-light(

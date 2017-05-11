@@ -1,25 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { ConjunctionsService } from '../services/conjunctions.service';
+import { Component } from '@angular/core';
 import { TokenService } from '../services/token.service';
-import { Utils } from '../services/utils.service';
+import { ToolbarService } from '../services/toolbar.service';
+import { ViewPage } from './view.page';
+import { ConjunctionsService } from '../services/conjunctions.service';
 import { Conjunction } from '../../api/entities/conjunction.entity';
 
 @Component({
   templateUrl: 'views/conjunctions.page.html'
 })
-export class ConjunctionsPage implements OnInit {
-  private cache: Conjunction[];
-  private conjunctions: Conjunction[];
-
+export class ConjunctionsPage extends ViewPage<Conjunction> {
   constructor(private conjunctionsService: ConjunctionsService,
-              private tokenService: TokenService) {
+              private tokenService: TokenService,
+              toolbarService: ToolbarService) {
+    super(toolbarService);
   }
   
-  public async ngOnInit(): Promise<void> {
-    this.conjunctions = this.cache = await this.conjunctionsService.getAllConjunctions();
-  }
-
-  private filter(pattern: string): void {
-    this.conjunctions = this.cache.filter(conjunction => Utils.contains(conjunction, pattern));
+  protected async init(): Promise<Conjunction[]> {
+    return await this.conjunctionsService.getAllConjunctions();
   }
 }
