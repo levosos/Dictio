@@ -15,14 +15,13 @@ export abstract class ViewPage<T> implements OnInit, OnDestroy {
   }
   
   public async ngOnInit(): Promise<void> {
-    this.toolbarService.filterState = FilterState.Disabled;
     this.members = this.cache = await this.init();
-    this.toolbarService.filterState = FilterState.Active;
+    this.toolbarService.filterState = FilterState.Enabled;
   }
 
   public ngOnDestroy() {
     this.subscription.unsubscribe();
-    this.toolbarService.filterState = FilterState.Hidden;
+    this.toolbarService.filterState = FilterState.Disabled;
   }
 
   protected abstract init(): Promise<T[]>;

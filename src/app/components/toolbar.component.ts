@@ -10,7 +10,7 @@ export class ToolbarComponent implements OnDestroy {
     private subscription: any;
 
     FilterState = FilterState;
-    private filterState: FilterState = FilterState.Hidden;
+    private filterState: FilterState = FilterState.Disabled;
 
     constructor(private toolbarService: ToolbarService,
                 private tokenService: TokenService) {

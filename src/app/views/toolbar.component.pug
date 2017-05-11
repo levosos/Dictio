@@ -7,15 +7,14 @@ ul.dropdown-content#menu
 .navbar-fixed
     nav
         .nav-wrapper
-            a.brand-logo.dictio-tm(href='#', style='margin-left: 10px; font-size: 42px') Dictio
+            a.dictio-tm.left(href='#', style='margin-left: 10px; font-size: 38px') Dictio
             i.material-icons.dropdown-button.waves-effect.waves-light.right(
                 '*ngIf'='tokenService.isLoggedIn()'
                 materialize='dropdown' 
                 data-activates='menu'
                 ) more_vert
-            .input-field.right('*ngIf'='filterState !== FilterState.Hidden')
+            .input-field.right('*ngIf'='filterState === FilterState.Enabled', style='width: 150px')
                 input#pattern(
-                    '[disabled]'='filterState === FilterState.Disabled'
                     type='search'
                     '#pattern'
                     '(input)'='filter($event.target.value)'

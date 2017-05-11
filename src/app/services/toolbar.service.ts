@@ -2,9 +2,8 @@ import { Injectable, EventEmitter } from '@angular/core';
 
 export enum FilterState
 {
-    Active,
-    Disabled,
-    Hidden
+    Enabled,
+    Disabled
 }
 
 @Injectable()
