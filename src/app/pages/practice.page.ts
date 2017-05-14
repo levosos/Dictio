@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NounsService } from '../services/nouns.service';
 import { UtilsService } from '../services/utils.service';
 import { Noun } from '../../api/entities/noun.entity';
-import { Challenge, IChallenger } from '../chellengers/challenger';
-import { NounsChallenger } from '../chellengers/nouns.challenger';
-import { VerbsChallenger } from '../chellengers/verbs.challenger';
-import { AdjectivesChallenger } from '../chellengers/adjectives.challenger';
-import { ConjunctionsChallenger } from '../chellengers/conjunctions.challenger';
+import { Challenge, IChallenger } from '../challengers/challenger';
+import { NounsChallenger } from '../challengers/nouns.challenger';
+import { VerbsChallenger } from '../challengers/verbs.challenger';
+import { AdjectivesChallenger } from '../challengers/adjectives.challenger';
+import { ConjunctionsChallenger } from '../challengers/conjunctions.challenger';
 
 enum Language
 {
