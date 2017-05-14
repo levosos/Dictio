@@ -6,11 +6,19 @@ import { Challenge, IChallenger } from '../chellengers/challenger';
 import { NounsChallenger } from '../chellengers/nouns.challenger';
 import { VerbsChallenger } from '../chellengers/verbs.challenger';
 
+enum Language
+{
+  Spanish,
+  English
+}
+
 @Component({
   templateUrl: 'views/practice.page.html',
   providers: [ NounsChallenger, VerbsChallenger ]
 })
 export class PracticePage implements OnInit {
+  private Language = Language;
+
   private challengers: Array<IChallenger>;
   private challenge: Challenge;
   private help: boolean = false;
