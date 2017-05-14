@@ -5,6 +5,8 @@ import { Noun } from '../../api/entities/noun.entity';
 import { Challenge, IChallenger } from '../chellengers/challenger';
 import { NounsChallenger } from '../chellengers/nouns.challenger';
 import { VerbsChallenger } from '../chellengers/verbs.challenger';
+import { AdjectivesChallenger } from '../chellengers/adjectives.challenger';
+import { ConjunctionsChallenger } from '../chellengers/conjunctions.challenger';
 
 enum Language
 {
@@ -14,7 +16,7 @@ enum Language
 
 @Component({
   templateUrl: 'views/practice.page.html',
-  providers: [ NounsChallenger, VerbsChallenger ]
+  providers: [ NounsChallenger, VerbsChallenger, AdjectivesChallenger, ConjunctionsChallenger ]
 })
 export class PracticePage implements OnInit {
   private Language = Language;
@@ -25,11 +27,15 @@ export class PracticePage implements OnInit {
   
   constructor(
     private nounsChallenger: NounsChallenger,
-    private verbsChallenger: VerbsChallenger
+    private verbsChallenger: VerbsChallenger,
+    private adjectivesChallenger: AdjectivesChallenger,
+    private conjunctionsChallenger: ConjunctionsChallenger
     ) {
       this.challengers = [
         this.nounsChallenger, 
-        this.verbsChallenger
+        this.verbsChallenger,
+        this.adjectivesChallenger,
+        this.conjunctionsChallenger
         ];
   }
   
