@@ -4,6 +4,7 @@ import { BrowserModule }            from '@angular/platform-browser';
 import { BrowserAnimationsModule }  from '@angular/platform-browser/animations';
 import { MaterialModule }           from '@angular/material';
 import { RouterModule }             from '@angular/router';
+import { HttpModule }               from '@angular/http';
 import { FormsModule }              from '@angular/forms';
 import { AUTH_PROVIDERS }           from 'angular2-jwt';
 import { MaterializeModule }        from "angular2-materialize";
@@ -45,7 +46,7 @@ import { ToolbarService }       from './services/toolbar.service';
   imports:      [ 
     BrowserModule, 
     BrowserAnimationsModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     MaterializeModule,
     RouterModule.forRoot([
       { path: '', component: MainComponent, 
@@ -63,7 +64,8 @@ import { ToolbarService }       from './services/toolbar.service';
       { path: 'login',  component: LoginForm },
       { path: 'logout', component: LogoutComponent }
     ], { useHash: true}),
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [
     AUTH_PROVIDERS,
