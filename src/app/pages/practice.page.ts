@@ -14,16 +14,24 @@ enum Language
   English
 }
 
+enum Help
+{
+  No,
+  Once,
+  Always
+}
+
 @Component({
   templateUrl: 'views/practice.page.html',
   providers: [ NounsChallenger, VerbsChallenger, AdjectivesChallenger, ConjunctionsChallenger ]
 })
 export class PracticePage implements OnInit {
   private Language = Language;
+  private Help = Help;
 
   private challengers: Array<IChallenger>;
   private challenge: Challenge;
-  private help: boolean = false;
+  private help: Help = Help.No;
   
   constructor(
     private nounsChallenger: NounsChallenger,
@@ -61,6 +69,8 @@ export class PracticePage implements OnInit {
     }
 
     this.challenge = challenge;
-    this.help = false;
+    if (this.help == Help.Once) {
+      this.help = Help.No;
+    }
   }
 }

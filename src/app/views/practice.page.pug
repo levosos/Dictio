@@ -7,9 +7,25 @@
             '[value]'='Language.Spanish'
             )
             md-button-toggle('[value]'='Language.Spanish') 
-                span.dictio-font(style="font-size: 24px") &aacute;
-            md-button-toggle('[value]'="Language.English")
-                span.dictio-font(style="font-size: 24px") a
+                span.dictio-font(style='font-size: 24px') &aacute;
+            md-button-toggle('[value]'='Language.English')
+                span.dictio-font(style='font-size: 24px') a
+        md-button-toggle-group('[(ngModel)]'='help')
+            md-button-toggle(
+                '[value]'='Help.No' 
+                style='padding-top: 6px; padding-bottom: 6px'
+                )
+                i.material-icons(style='font-size: 24px') not_interested
+            md-button-toggle(
+                '[value]'='Help.Once'
+                style='padding-top: 6px; padding-bottom: 6px'
+                )
+                i.material-icons(style='font-size: 24px') help_outline
+            md-button-toggle(
+                '[value]'='Help.Always'
+                style='padding-top: 6px; padding-bottom: 6px'
+                )
+                i.material-icons(style='font-size: 24px') help
         .card.yellow.lighten-4.z-depth-2(
             '(click)'='next()'
             )
@@ -17,6 +33,5 @@
                 .blue-text.text-darken-4(style='font-size: 14px') {{challenge.description}}
                 div 
                     | {{language.value == Language.Spanish ? challenge.spanish : challenge.english}}
-                    i.material-icons.grey-text.right(style='font-size: 36px' '(click)'='help = !help; $event.stopPropagation();') {{help ? 'help' : 'help_outline'}}
-                .grey-text('*ngIf'='help') {{language.value == Language.Spanish ? challenge.english : challenge.spanish}}
+                .grey-text('*ngIf'='help != Help.No') {{language.value == Language.Spanish ? challenge.english : challenge.spanish}}
         blockquote Click on the card to proceed
