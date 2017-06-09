@@ -1,4 +1,4 @@
-import { Utils } from '../services/utils.service';
+import * as utils from '../utils/utils';
 
 export class Challenge
 {
@@ -20,7 +20,7 @@ export abstract class Challenger<T> implements IChallenger
   {
     if (this.members === undefined) {
       this.members = await this.init();
-      Utils.shuffle(this.members);
+      utils.shuffle(this.members);
     }
 
     const member: T = this.members.pop();

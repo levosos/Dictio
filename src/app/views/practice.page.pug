@@ -1,7 +1,7 @@
 .container
     .progress('*ngIf'='!challenge')
         .indeterminate
-    div('*ngIf'='challenge' style='margin-top: 30px')
+    div('*ngIf'='challenge' style='margin-top: 20px')
         md-button-toggle-group(
             '#language'='mdButtonToggleGroup' 
             '[value]'='Language.Spanish'
@@ -28,6 +28,7 @@
                 i.material-icons(style='font-size: 24px') help
         .card.yellow.lighten-4.z-depth-2(
             '(click)'='next()'
+            style='margin-top: 10px'
             )
             .card-content.dictio-font(style='font-size: 28px')
                 .blue-text.text-darken-4(style='font-size: 14px') {{challenge.description}}

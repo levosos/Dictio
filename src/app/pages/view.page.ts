@@ -1,6 +1,6 @@
 import { OnInit, OnDestroy } from '@angular/core';
 import { ToolbarService, FilterState } from '../services/toolbar.service';
-import { Utils } from '../services/utils.service';
+import * as utils from '../utils/utils';
 
 export abstract class ViewPage<T> implements OnInit, OnDestroy {
   private subscription: any;
@@ -10,7 +10,7 @@ export abstract class ViewPage<T> implements OnInit, OnDestroy {
   
   constructor(private toolbarService: ToolbarService) {
     this.subscription = toolbarService.filterSource.subscribe(filter => {
-      this.members = this.cache.filter(member => Utils.contains(member, filter));
+      this.members = this.cache.filter(member => utils.contains(member, filter));
     });
   }
   

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from './http.service';
-import { UtilsService, Utils } from './utils.service';
+import { UtilsService } from './utils.service';
+import * as utils from '../utils/utils';
 import { Credentials } from '../../api/models/credentials.model';
 import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 import { User, Role } from '../../api/entities/user.entity';
@@ -43,7 +44,7 @@ export class TokenService {
         if (!this.isLoggedIn()) {
             let token: string = await this.http.post(TokenService.RestPath, credentials);
             localStorage.setItem(TokenService.LocalStorageKey, token);
-            this.utils.toast('Logged in as \'' + Utils.capitalize(this.user.username) + '\'');
+            this.utils.toast('Logged in as \'' + utils.capitalize(this.user.username) + '\'');
         }
         
         this.redirect();
