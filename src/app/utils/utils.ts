@@ -32,6 +32,10 @@ export function shuffle(array: any[]): void {
     }
 }
     
-export function generateRandomNumber(max: number): number {
+export function generateRandomNumber(max: number): number { // [0, max)
     return Math.floor(Math.random() * max);
+}
+
+export function generateRandomBoolean(): boolean {
+    return generateRandomNumber(2) == 0;
 }
