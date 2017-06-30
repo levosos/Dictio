@@ -2,37 +2,29 @@
     .progress('*ngIf'='!challenge')
         .indeterminate
     div('*ngIf'='challenge' style='margin-top: 20px')
-        md-button-toggle-group(
-            '#language'='mdButtonToggleGroup' 
-            '[value]'='Language.Spanish'
-            )
+        md-button-toggle-group('[(ngModel)]'='settings.language')
             md-button-toggle('[value]'='Language.Spanish') 
                 span.dictio-font(style='font-size: 24px') &aacute;
             md-button-toggle('[value]'='Language.English')
                 span.dictio-font(style='font-size: 24px') a
-        md-button-toggle-group.right('[(ngModel)]'='help')
+        md-button-toggle-group.right('[(ngModel)]'='settings.answer')
             md-button-toggle(
-                '[value]'='Help.No' 
-                style='padding-top: 6px; padding-bottom: 6px'
-                )
-                i.material-icons(style='font-size: 24px') not_interested
-            md-button-toggle(
-                '[value]'='Help.Once'
+                '[value]'='false'
                 style='padding-top: 6px; padding-bottom: 6px'
                 )
                 i.material-icons(style='font-size: 24px') help_outline
             md-button-toggle(
-                '[value]'='Help.Always'
+                '[value]'='true'
                 style='padding-top: 6px; padding-bottom: 6px'
                 )
                 i.material-icons(style='font-size: 24px') help
         .card.yellow.lighten-4.z-depth-2(
-            '(click)'='next()'
+            '(click)'='pressed()'
             style='margin-top: 10px'
             )
             .card-content.dictio-font(style='font-size: 28px')
                 .blue-text.text-darken-4(style='font-size: 14px') {{challenge.description}}
                 div 
-                    | {{language.value == Language.Spanish ? challenge.spanish : challenge.english}}
-                .grey-text('*ngIf'='help != Help.No') {{language.value == Language.Spanish ? challenge.english : challenge.spanish}}
+                    | {{settings.language == Language.Spanish ? challenge.spanish : challenge.english}}
+                .grey-text('*ngIf'='settings.answer && state == State.Answer') {{settings.language == Language.Spanish ? challenge.english : challenge.spanish}}
         blockquote Click on the card to proceed

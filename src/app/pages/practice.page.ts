@@ -8,17 +8,19 @@ import { VerbsChallenger } from '../challengers/verbs.challenger';
 import { AdjectivesChallenger } from '../challengers/adjectives.challenger';
 import { ConjunctionsChallenger } from '../challengers/conjunctions.challenger';
 
-enum Language
-{
+enum Language {
   Spanish,
   English
 }
 
-enum Help
-{
-  No,
-  Once,
-  Always
+enum State {
+  Question,
+  Answer,
+}
+
+interface Settings {
+  answer: boolean;
+  language: Language;
 }
 
 @Component({
@@ -27,11 +29,12 @@ enum Help
 })
 export class PracticePage implements OnInit {
   private Language = Language;
-  private Help = Help;
+  private State = State;
 
   private challengers: Array<IChallenger>;
   private challenge: Challenge;
-  private help: Help = Help.No;
+  private state: State = State.Question;
+  private settings: Settings = { answer: true, language: Language.Spanish };
   
   constructor(
     private nounsChallenger: NounsChallenger,
@@ -69,8 +72,20 @@ export class PracticePage implements OnInit {
     }
 
     this.challenge = challenge;
-    if (this.help == Help.Once) {
-      this.help = Help.No;
+  }
+  
+  private async pressed(): Promise<void> {
+    if (this.settings.answer) {
+      if (this.state == State.Question) {
+        this.state = State.Answer;
+        return;
+      }
+
+      this.state = State.Question;
+      await this.next();
+    }
+    else {
+      await this.next();
     }
   }
 }
